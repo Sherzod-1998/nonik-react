@@ -106,7 +106,7 @@ export default function ChosenProduct(props: ChosenProductProps) {
               <div className={"evaluation-box"}>
                 <div className={"product-view"}>
                   <RemoveRedEyeIcon sx={{ mr: "10px" }} />
-                  <span>{chosenProduct?.productViews}</span>
+                  <span>{chosenProduct?.productView}</span>
                 </div>
               </div>
             </Box>

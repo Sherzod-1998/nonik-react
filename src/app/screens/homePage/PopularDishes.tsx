@@ -60,7 +60,7 @@ export default function PopularDishes() {
                               display: "flex",
                             }}
                           >
-                            {product.productViews}
+                            {product.productView}
                             <VisibilityIcon
                               sx={{ fontSize: 25, marginLeft: "5px" }}
                             />

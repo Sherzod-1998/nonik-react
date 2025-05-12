@@ -1,24 +1,23 @@
 import { 
+  BrandCollection,
     ProductCollection, 
-    ProductSize, 
     ProductStatus 
   } from "../enums/product.enum";
   
   export interface Product {
-    _id: string;
-    productStatus: ProductStatus;
-    productCollection: ProductCollection;
-    productName: string;
-    productPrice: number;
-    productLeftcount: number;
-    productSize: ProductSize;
-    productVolume: number;
-    productDesc?: string;
-    productImages: string[];
-    productViews: number;
-    createdAt: Date;
-    updatedAt: Date;
-  }
+	_id: string;
+	productStatus: ProductStatus;
+	productCollection: ProductCollection;
+	brandCollection: BrandCollection;
+	productName: string;
+	productPrice: number;
+	productLeftCount: number;
+	productDesc?: string;
+	productImages: string[];
+	productView: number;
+	createdAt: Date;
+	updatedAt: Date;
+}
   
   export interface ProductInquiry {
     order: string;

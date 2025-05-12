@@ -57,7 +57,7 @@ export default function NewDishes() {
                           </Stack>
                           <Stack>
                             <Typography className={"views"}>
-                              {product.productViews}
+                              {product.productView}
                               <VisibilityIcon
                                 sx={{ fontSize: 20, marginLeft: "5px" }}
                               />

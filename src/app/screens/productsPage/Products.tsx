@@ -42,7 +42,7 @@ export default function Products(props: ProductsProps) {
     page: 1, //backendga
     limit: 8,
     order: "createdAt",
-    productCollection: ProductCollection.DISH,
+    productCollection: ProductCollection.MAKEUP,
     search: "",
   });
 
@@ -99,7 +99,7 @@ export default function Products(props: ProductsProps) {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
             <Stack className={"top-text"}>
-              <p>Burak Restaurant</p>
+              <p>Nonik Cosmetics</p>
               <Stack className={"single-search-big-box"}>
                 <input
                   type={"search"}
@@ -187,54 +187,67 @@ export default function Products(props: ProductsProps) {
                   variant={"contained"}
                   color={
                     productSearch.productCollection ===
-                    ProductCollection.DESSERT
+                    ProductCollection.HAIRCARE
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.DESSERT)
+                    searchCollectionHandler(ProductCollection.HAIRCARE)
                   }
                 >
-                  Dessert
+                  Haircare
                 </Button>
                 <Button
                   variant={"contained"}
                   color={
-                    productSearch.productCollection === ProductCollection.DRINK
+                    productSearch.productCollection === ProductCollection.PERFUME
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.DRINK)
+                    searchCollectionHandler(ProductCollection.PERFUME)
                   }
                 >
-                  Drink
+                  Perfume
                 </Button>
                 <Button
                   variant={"contained"}
                   color={
-                    productSearch.productCollection === ProductCollection.SALAD
+                    productSearch.productCollection === ProductCollection.SKINCARE
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.SALAD)
+                    searchCollectionHandler(ProductCollection.SKINCARE)
                   }
                 >
-                  Salad
+                  Skincare
                 </Button>
                 <Button
                   variant={"contained"}
                   color={
-                    productSearch.productCollection === ProductCollection.DISH
+                    productSearch.productCollection === ProductCollection.SUNCARE
                       ? "primary"
                       : "secondary"
                   }
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.DISH)
+                    searchCollectionHandler(ProductCollection.SUNCARE)
                   }
                 >
-                  Dish
+                  Suncare
+                </Button>
+                <Button
+                  variant={"contained"}
+                  color={
+                    productSearch.productCollection === ProductCollection.MAKEUP
+                      ? "primary"
+                      : "secondary"
+                  }
+                  onClick={() =>
+                    searchCollectionHandler(ProductCollection.MAKEUP)
+                  }
+                >
+                  Makeup
                 </Button>
               </div>
             </Stack>
@@ -243,10 +256,6 @@ export default function Products(props: ProductsProps) {
               {products.length !== 0 ? (
                 products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  const sizeVolume =
-                    product.productCollection === ProductCollection.DRINK
-                      ? product.productVolume + " litre"
-                      : product.productSize + " size";
                   return (
                     <Stack
                       key={product._id}
@@ -257,7 +266,6 @@ export default function Products(props: ProductsProps) {
                         className={"product-img"}
                         sx={{ backgroundImage: `url(${imagePath})` }}
                       >
-                        <div className={"product-sale"}>{sizeVolume}</div>
                         <Button
                           className={"shop-btn"}
                           onClick={(e) => {
@@ -278,13 +286,13 @@ export default function Products(props: ProductsProps) {
                         </Button>
                         <Button className={"view-btn"} sx={{ right: "36px" }}>
                           <Badge
-                            badgeContent={product.productViews}
+                            badgeContent={product.productView}
                             color="secondary"
                           >
                             <RemoveRedEyeIcon
                               sx={{
                                 color:
-                                  product.productViews === 0 ? "gray" : "white",
+                                  product.productView === 0 ? "gray" : "white",
                               }}
                             />
                           </Badge>
