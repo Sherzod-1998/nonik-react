@@ -13,12 +13,12 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
-import { setChosenProduct, setRestaurant } from "./slice";
+import { setChosenProduct, setSeller } from "./slice";
 import { Product } from "../../../lib/types/product";
 import {
   retrieveChosenProduct,
   retrieveProducts,
-  retrieveRestaurant,
+  retrieveSeller,
 } from "./selector";
 import { Member } from "../../../lib/types/member";
 import { useParams } from "react-router-dom";
@@ -29,14 +29,14 @@ import { CartItem } from "../../../lib/types/search";
 
 /** Redux Slice & Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
-  setRestaurant: (data: Member) => dispatch(setRestaurant(data)),
+  setSeller: (data: Member) => dispatch(setSeller(data)),
   setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
 });
 
-const restaurantRetriever = createSelector(
-  retrieveRestaurant,
-  (restaurant) => ({
-    restaurant,
+const sellerRetriever = createSelector(
+  retrieveSeller,
+  (seller) => ({
+    seller,
   })
 );
 const chosenProductRetriever = createSelector(
@@ -53,9 +53,9 @@ interface ChosenProductProps {
 export default function ChosenProduct(props: ChosenProductProps) {
   const { onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
-  const { setRestaurant, setChosenProduct } = actionDispatch(useDispatch());
+  const { setSeller, setChosenProduct } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
-  const { restaurant } = useSelector(restaurantRetriever);
+  const { seller } = useSelector(sellerRetriever);
 
   useEffect(() => {
     const product = new ProductService();
@@ -66,8 +66,8 @@ export default function ChosenProduct(props: ChosenProductProps) {
 
     const member = new MemberService();
     member
-      .getRestaurant()
-      .then((data) => setRestaurant(data))
+      .getSeller()
+      .then((data) => setSeller(data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -99,8 +99,8 @@ export default function ChosenProduct(props: ChosenProductProps) {
             <strong className={"product-name"}>
               {chosenProduct?.productName}
             </strong>
-            <span className={"resto-name"}>{restaurant?.memberNick}</span>
-            <span className={"resto-name"}>{restaurant?.memberPhone}</span>
+            <span className={"resto-name"}>{seller?.memberNick}</span>
+            <span className={"resto-name"}>{seller?.memberPhone}</span>
             <Box className={"rating-box"}>
               <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
               <div className={"evaluation-box"}>
