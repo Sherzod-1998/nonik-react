@@ -45,7 +45,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 30px;
-    color: #71eb68;
+    color: #20e712;
 }
 
 /** POPULAR DISHES **/
@@ -54,7 +54,8 @@
     width: 100%;
     height: 580px;
     display: flex;
-    background: #f8f8ff;
+    background: #ececfe;
+    
 }
 
 .homepage .popular-dishes-frame .popular-section {
@@ -87,7 +88,18 @@
   min-height: 430px;
   min-width: 300px;
   cursor: pointer;
+  background-color: #d4a373;
+  transition: all 0.4s ease;
+  border-radius: 0%; /* Dastlab to‘rtburchak */
+  cursor: pointer;
+  overflow: hidden;
+  margin: 47px 2px 2px 2px;
 }
+.homepage .popular-dishes-frame .cards-frame .card:hover {
+  border-radius: 20%; /* Hover qilganda aylana */
+}
+
+
 
 .homepage .popular-dishes-frame .cards-frame .card .card-cover {
   background: linear-gradient(
@@ -119,7 +131,7 @@
 .homepage .new-products-frame {
     width: 100%;
     height: 605px;
-    background: #f8f8ff;
+    background: #ececfe;
     display: flex;
 }
   
@@ -253,7 +265,7 @@
 .homepage .active-users-frame {
   width: 100%;
   height: 605px;
-  background: #f8f8ff;
+  background: #ececfe;
   display: flex;
 }
 
@@ -299,6 +311,7 @@
 .homepage .active-users-frame .user-detail .info{
   display: flex;
   justify-content: center;
+  
 }
 
 .homepage .active-users-frame .user-detail .info .member-nickname {
@@ -326,17 +339,19 @@
 .homepage .events-frame {
   width: 100%;
   height: 745px;
-  background: #f8f8ff;
+  background: #ececfe;
   display: flex;
 }
 
 .homepage .events-frame .category-title {
-  font-family: "Dancing Script";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 43px;
-  padding-top: 20px;
+  color: rgb(0, 0, 0);
+font-family: Playfair Display;
+font-size: 30px;
+font-weight: 400;
+line-height: 40px;
+letter-spacing: 0%;
+text-align: left;
+  
 }
 
 .homepage .events-frame .events-main {
@@ -397,6 +412,7 @@
   display: flex;
   border-radius: 10px;
   background-size: cover;
+  filter: brightness(80%);
 }
 
 .homepage .events-frame .events-desc {
@@ -409,7 +425,7 @@
   bottom: 5px;
   background: #f8f8ff;
   box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
+  border-radius: 8px;background-color: #dedbe4;
 }
 
 .homepage .events-frame .events-desc .events-bott {
@@ -419,6 +435,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .homepage .events-frame .events-desc .events-bott .bott-left {

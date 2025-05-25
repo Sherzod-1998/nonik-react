@@ -43,7 +43,7 @@ export default function ActiveUsers() {
 
                       <CardOverflow variant="soft" className="user-detail">
                         <Stack className="info">
-                          <Stack flexDirection="row">
+                          <Stack flexDirection="column">
                             <Typography className={"member-nickname"}>
                               {member.memberNick}
                             </Typography>

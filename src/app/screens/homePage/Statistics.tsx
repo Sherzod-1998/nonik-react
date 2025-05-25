@@ -31,7 +31,7 @@ export default function Statistics() {
           <Divider height="64" width="2" bg="#E3C08D" />
           <Stack className="static-box">
             <Box className="static-num">
-              <CountUp start={0} end={200} duration={2} />
+              <CountUp start={0} end={200} duration={2} />k +
             </Box>
             <Box className="static-text">satisfied customers</Box>
           </Stack>
