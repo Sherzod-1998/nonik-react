@@ -7,7 +7,7 @@ const Footers = styled.div`
   width: 100%;
   height: 590px;
   display: flex;
-  background:#000000;
+  background:#2F2F2F;
   background-size: cover;
 `;
 

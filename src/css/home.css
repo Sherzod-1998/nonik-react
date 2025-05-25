@@ -8,7 +8,7 @@
 .homepage .static-frame {
     width: 100%;
     height: 236px;
-    background: #343434;
+   background:#2F2F2F;
   }
 
 .homepage .static-frame .info {
@@ -30,12 +30,12 @@
   
   .homepage .static-frame .info .static-box .static-num {
     text-align: center;
-    font-family: Poppins;
+    font-family: 'Marcellus', serif;
     font-size: 54px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    color: #d7b686;
+    color: #71eb68;
 }
 
 .homepage .static-frame .info .static-box .static-text {
@@ -45,7 +45,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 30px;
-    color: #d7b586;
+    color: #71eb68;
 }
 
 /** POPULAR DISHES **/
