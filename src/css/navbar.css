@@ -1,9 +1,11 @@
 .home-navbar {
     width: 100%;
-    height: 750x;
+    height: 900px;
     display: flex;
     background: url("/public/img/banner.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .home-navbar .navbar-container {
@@ -17,7 +19,19 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: ;
   }
+
+  .home-navbar .navbar-container .menu .nonik-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 48px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #FFFFFF;
+}
+
   
   .home-navbar .navbar-container .menu .brand-logo {
     width: 125px;
@@ -48,8 +62,8 @@
   }
   
   .home-navbar .hover-line a {
-    color: #f8f8ff;
     z-index: 100;
+    color: rgb(255, 255, 255);
   }
   
   .home-navbar .underline{
@@ -74,19 +88,21 @@
     transform-origin: 0% 50%;
   }
 
-  .home-navbar .navbar-container .header-frame {
-    margin-top: 142px;
-    height: 462px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .home-navbar .navbar-container .header-frame .detail {
-    width: 510px;
-    display: flex;
-    flex-direction: column;
-  }
+ .home-navbar .navbar-container .header-frame {
+  margin-top: 142px;
+  height: 462px;
+  display: flex;
+  flex-direction: column; /* bu holatda ham ishlaydi */
+}
+
+.home-navbar .navbar-container .header-frame .detail {
+  width: 510px;
+  margin-left: auto; /* O‘ng tomonga suradi */
+
+}
+
+
+
 
   .home-navbar .navbar-container .header-frame .detail .head-main-text {
     width: 450px;
@@ -101,32 +117,32 @@
   }
 
   .home-navbar .navbar-container .header-frame .detail .wel-txt {
-    width: 510px;
-    height: 42px;
-    font-family: "Roboto Serif";
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.54px;
-    color: #d7b686;
-  }
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 47px;
+  line-height: 63px;
+  letter-spacing: 0;
+  text-align: right;
+  color: #FFFFFF;
+}
+
   
   .home-navbar .navbar-container .header-frame .detail .service-txt {
-    margin-top: 23px;
-    width: 153px;
-    height: 23px;
-    font-family: "Roboto Serif";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.3px;
-    color: #d5d5d5;
-  }
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 19px;
+  letter-spacing: 0;
+  text-align: right;
+  color: #FFFFFF;
+  margin-top: 5px;
+}
+
   
   .home-navbar .navbar-container .detail .signup {
-    margin-top: 73px;
+    margin-top: 90px;
+    display: flex;
+  justify-content: flex-end; /* tugma o‘ng tomonga chiqadi */
   }
   
   .home-navbar .navbar-container .detail .signup .signup-button {
@@ -182,6 +198,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
   }
   
   .other-navbar .navbar-container .menu .brand-logo {
