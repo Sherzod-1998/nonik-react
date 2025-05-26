@@ -171,89 +171,88 @@ export default function Products(props: ProductsProps) {
           </Stack>
 
           <Stack className={"list-category-section"}>
-            <Stack className={"product-category"}>
-              <div className={"category-main"}>
-                <Button
-                  variant={"contained"}
-                  color={
-                    productSearch.productCollection === ProductCollection.OTHER
-                      ? "primary"
-                      : "secondary"
+            <Stack className={"category-main"}>
+              <p>Categories</p>
+                <FormControlLabel className="custom-checkbox-label"
+                    control={
+                      <Checkbox
+                      className="custom-black-checkbox"
+                        checked={productSearch.productCollection === ProductCollection.MAKEUP}
+                        onChange={() =>
+                          searchCollectionHandler(ProductCollection.MAKEUP)
+                        }
+                        color="primary"
+                      />
+                    }
+                    label="Makeup"
+                  />
+                <FormControlLabel className="custom-checkbox-label"
+                  control={
+                    <Checkbox
+                     className="custom-black-checkbox"
+                      checked={productSearch.productCollection === ProductCollection.HAIRCARE}
+                      onChange={() =>
+                        searchCollectionHandler(ProductCollection.HAIRCARE)
+                      }
+                      color="primary"
+                    />
                   }
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.OTHER)
+                  label="Haircare"
+                />
+                <FormControlLabel className="custom-checkbox-label"
+                  control={
+                    <Checkbox
+                     className="custom-black-checkbox"
+                      checked={productSearch.productCollection === ProductCollection.PERFUME}
+                      onChange={() =>
+                        searchCollectionHandler(ProductCollection.PERFUME)
+                      }
+                      color="primary"
+                    />
                   }
-                >
-                  Other
-                </Button>
-                <Button
-                  variant={"contained"}
-                  color={
-                    productSearch.productCollection ===
-                    ProductCollection.HAIRCARE
-                      ? "primary"
-                      : "secondary"
+                  label="Perfume"
+                />
+                <FormControlLabel className="custom-checkbox-label"
+                  control={
+                    <Checkbox
+                     className="custom-black-checkbox"
+                      checked={productSearch.productCollection === ProductCollection.SKINCARE}
+                      onChange={() =>
+                        searchCollectionHandler(ProductCollection.SKINCARE)
+                      }
+                      color="primary"
+                    />
                   }
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.HAIRCARE)
+                  label="Skincare"
+                />
+                <FormControlLabel className="custom-checkbox-label"
+                  control={
+                    <Checkbox
+                     className="custom-black-checkbox"
+                      checked={productSearch.productCollection === ProductCollection.SUNCARE}
+                      onChange={() =>
+                        searchCollectionHandler(ProductCollection.SUNCARE)
+                      }
+                      color="primary"
+                    />
                   }
-                >
-                  Haircare
-                </Button>
-                <Button
-                  variant={"contained"}
-                  color={
-                    productSearch.productCollection === ProductCollection.PERFUME
-                      ? "primary"
-                      : "secondary"
+                  label="Suncare"
+                />
+                <FormControlLabel className="custom-checkbox-label"
+                  control={
+                    <Checkbox
+                      className="custom-black-checkbox"
+                      checked={productSearch.productCollection === ProductCollection.OTHER}
+                      onChange={() =>
+                        searchCollectionHandler(ProductCollection.OTHER)
+                      }
+                      color="default"
+                    />
                   }
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.PERFUME)
-                  }
-                >
-                  Perfume
-                </Button>
-                <Button
-                  variant={"contained"}
-                  color={
-                    productSearch.productCollection === ProductCollection.SKINCARE
-                      ? "primary"
-                      : "secondary"
-                  }
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.SKINCARE)
-                  }
-                >
-                  Skincare
-                </Button>
-                <Button
-                  variant={"contained"}
-                  color={
-                    productSearch.productCollection === ProductCollection.SUNCARE
-                      ? "primary"
-                      : "secondary"
-                  }
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.SUNCARE)
-                  }
-                >
-                  Suncare
-                </Button>
-                <Button
-                  variant={"contained"}
-                  color={
-                    productSearch.productCollection === ProductCollection.MAKEUP
-                      ? "primary"
-                      : "secondary"
-                  }
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.MAKEUP)
-                  }
-                >
-                  Makeup
-                </Button>
-              </div>
-            </Stack>
+                  label="Other"
+                />
+                
+              </Stack>
             
 
             <Stack className={"product-wrapper"}>

@@ -150,6 +150,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  
 }
 
 .products .product-wrapper .no-data {
@@ -542,30 +543,40 @@
 }
 
 .products-page .products .list-category-section {
-  width: 100%;
-  min-height: 600px;
+  width: 120%;
+  min-height: 00px;
   display: flex;
   flex-direction: row;
+
+  
 }
 
-.products-page .products .product-category {
-  margin-top: 60px;
-  width: 50px;
-  height: auto;
+
+.products-page .products .list-category-section .category-main {
   display: flex;
   flex-direction: column;
+  justify-content:flex-start;
+  background-color: white;
+  border-radius: 5%;
+  height:fit-content;
+  margin-top: 40px;
+  color: black;
 }
 
-.products-page .product-category .category-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
+.products-page .products .list-category-section .category-main /* Qutining chizig‘i va belgilanish rangini qora qilish */
+.custom-black-checkbox .MuiSvgIcon-root {
+  color: rgb(0, 0, 0);
+  font-size: 32px;
 }
+
+.products-page .products .list-category-section .category-main .custom-checkbox-label .MuiFormControlLabel-label {
+  font-size: 20px; /* matn hajmi */
+  color: black;    /* ixtiyoriy: qora rang */
+  font-weight: 500; /* ixtiyoriy: matnni biroz qalin qilish */
+}
+ 
+  
+
 
 .products-page .product-category .category-main button {
   min-width: auto;
