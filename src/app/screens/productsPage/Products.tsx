@@ -172,7 +172,8 @@ export default function Products(props: ProductsProps) {
 
           <Stack className={"list-category-section"}>
             <Stack className={"category-main"}>
-              <p>Categories</p>
+              <p className="category-text">Categories</p>
+              <div className="category-content">
                 <FormControlLabel className="custom-checkbox-label"
                     control={
                       <Checkbox
@@ -251,6 +252,9 @@ export default function Products(props: ProductsProps) {
                   }
                   label="Other"
                 />
+              </div>
+             
+                
                 
               </Stack>
             

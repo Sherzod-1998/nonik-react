@@ -557,22 +557,48 @@
   flex-direction: column;
   justify-content:flex-start;
   background-color: white;
-  border-radius: 5%;
+  align-items: center;
   height:fit-content;
   margin-top: 40px;
   color: black;
+  height:fit-content;
+  width: 150px;
+
+}
+.products-page .products .list-category-section .category-main .category-content{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+
+}
+
+.products-page .products .list-category-section .category-main .category-text{
+  width: auto;
+    height: auto;
+    color: #181a20;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 .products-page .products .list-category-section .category-main /* Qutining chizig‘i va belgilanish rangini qora qilish */
 .custom-black-checkbox .MuiSvgIcon-root {
-  color: rgb(0, 0, 0);
-  font-size: 32px;
+  width: 16px;
+    height: 15px;
+    border-radius: 12px;
+    margin-right: 10px;
+    color: #181a20;
 }
 
 .products-page .products .list-category-section .category-main .custom-checkbox-label .MuiFormControlLabel-label {
-  font-size: 20px; /* matn hajmi */
-  color: black;    /* ixtiyoriy: qora rang */
-  font-weight: 500; /* ixtiyoriy: matnni biroz qalin qilish */
+  color: #181a20;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
 }
  
   
