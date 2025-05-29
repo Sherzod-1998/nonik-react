@@ -33,7 +33,7 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "productViews",
-        // productCollection: ProductCollection.MAKEUP,
+        productCollection: [],
       })
       .then((data) => {
         console.log("dataaaaaaaaaaaaaaaaaaaaaaaaaa",data)
@@ -46,7 +46,7 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "createdAt",
-        // productCollection: ProductCollection.MAKEUP,
+        productCollection: [],
       })
       .then((data) => {
         setNewDishes(data);

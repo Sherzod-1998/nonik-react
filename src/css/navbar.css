@@ -4,7 +4,7 @@
     display: flex;
     background: url("/public/img/banner.png");
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
     background-repeat: no-repeat;
   }
 
