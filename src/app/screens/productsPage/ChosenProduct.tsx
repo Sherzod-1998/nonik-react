@@ -10,6 +10,12 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import { Card, CardContent, Typography, CardActions } from '@mui/joy';
+import ProductList from "./ProductList";
+
+
+import { Grid } from '@mui/joy';
+import JoyProductCard from './JoyProductCard';
 
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
@@ -26,6 +32,47 @@ import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import { serverApi } from "../../../lib/config";
 import { CartItem } from "../../../lib/types/search";
+
+
+export const products = [
+  {
+    id: '1',
+    name: 'Sun Care Lotion',
+    description: 'Protects your skin from UV rays and keeps it hydrated all day.',
+    price: 19.99,
+    image: 'https://images.unsplash.com/photo-1582719478170-2b1817f8e8c8?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '2',
+    name: 'Aloe Vera Gel',
+    description: 'Soothes and repairs damaged skin naturally with Aloe extract.',
+    price: 12.49,
+    image: 'https://images.unsplash.com/photo-1612202208885-375678d006d2?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '3',
+    name: 'Hydrating Face Cream',
+    description: 'Deep hydration for dry and sensitive skin. Ideal for daily use.',
+    price: 25.0,
+    image: 'https://images.unsplash.com/photo-1598214886806-c9b0b1c6d7d2?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '4',
+    name: 'Vitamin C Serum',
+    description: 'Brightens skin tone and reduces fine lines with natural Vitamin C.',
+    price: 29.95,
+    image: 'https://images.unsplash.com/photo-1628684325943-4cf8f16b9020?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '5',
+    name: 'Green Tea Toner',
+    description: 'Gently cleanses and balances skin with green tea extract.',
+    price: 14.99,
+    image: 'https://images.unsplash.com/photo-1620812094484-c9f859e98309?auto=format&fit=crop&w=800&q=80',
+  },
+];
+
+
 
 /** Redux Slice & Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -139,6 +186,10 @@ export default function ChosenProduct(props: ChosenProductProps) {
             </div>
           </Box>
         </Stack>
+      </Container>
+      <Container className="recommend-container">
+        <Box className={"category-title"}>Recommended</Box>
+        <ProductList />
       </Container>
     </div>
   );

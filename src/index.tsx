@@ -10,6 +10,7 @@ import "./css/index.css";
 import theme from "./app/MaterialTheme";
 import { BrowserRouter as Router } from "react-router-dom";
 import ContextProvider from "./app/context/ContextProvider";
+import { CssVarsProvider } from '@mui/joy/styles';
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);

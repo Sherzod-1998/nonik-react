@@ -634,6 +634,16 @@
   margin-bottom: 150px;
 }
 
+.products-page .chosen-product .recommend-container .category-title{
+ font-family: "Dancing Script";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+  
+}
+
 .products-page .chosen-product .chosen-product-slider {
   width: 48%;
   height: 480px;
