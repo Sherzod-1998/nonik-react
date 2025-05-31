@@ -15,6 +15,8 @@ import { ProductCollection } from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
+import { RadioGroup, Radio } from "@mui/material";
+
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setProducts: (data: Product[]) => dispatch(setProducts(data)),
@@ -113,28 +115,36 @@ export default function Products(props: ProductsProps) {
             </Stack>
           </Stack>
 
-          <Stack className="dishes-filter-section">
-            <Stack className="dishes-filter-box">
-              {[
-                { label: "New", value: "createdAt" },
-                { label: "Price", value: "productPrice" },
-                { label: "Views", value: "productViews" },
-              ].map((item) => (
-                <Button
-                  key={item.value}
-                  variant="contained"
-                  color={productSearch.order === item.value ? "primary" : "secondary"}
-                  onClick={() => searchOrderHandler(item.value)}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </Stack>
-          </Stack>
-
           <Stack className="list-category-section">
             
             <Stack className="category-main">
+
+              
+
+              <p className="category-text">Filter</p>
+              <div className="category-filter">
+                <RadioGroup
+                  className="custom-radio-group"
+                  row
+                  value={productSearch.order}
+                  onChange={(e) => searchOrderHandler(e.target.value)}
+                >
+                  {[
+                    { label: "New", value: "createdAt" },
+                    { label: "Price", value: "productPrice" },
+                    { label: "Views", value: "productViews" },
+                  ].map((item) => (
+                    <FormControlLabel
+                      className="custom-radio-label"
+                      key={item.value}
+                      value={item.value}
+                      control={<Radio className="custom-radio-icon" />}
+                      label={item.label}
+                    />
+                  ))}
+                </RadioGroup>
+              </div>
+
               <p className="category-text">Categories</p>
               <div className="category-content">
                 {Object.values(ProductCollection).map((collection) => (
@@ -153,6 +163,7 @@ export default function Products(props: ProductsProps) {
                   />
                 ))}
               </div>
+              
             </Stack>
             
 

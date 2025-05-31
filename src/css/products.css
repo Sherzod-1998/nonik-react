@@ -560,34 +560,77 @@
   justify-content:flex-start;
   background-color: rgb(255, 255, 255);
   align-items: center;
+  
   height:fit-content;
   margin-top: 40px;
   color: black;
   height:fit-content;
   width: 150px;
+  
 
 }
-.products-page .products .list-category-section .category-main .category-content{
-  /* background-color: red; */
-  display: flex;
+
+.products-page 
+.products 
+.list-category-section 
+.category-main 
+.category-filter{
+  
+   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  padding-left: 13px;
 }
 
-.products-page .products .list-category-section .category-main .category-text{
-  width: auto;
-    height: auto;
-    color: #181a20;
+.products-page 
+.products 
+.list-category-section 
+.category-main 
+.category-filter
+.custom-radio-group
+.MuiFormControlLabel-label {
+  color: #181a20;
     font-family: Poppins, sans-serif;
     font-size: 14px;
     font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.products-page 
+.products 
+.list-category-section 
+.category-main 
+.category-filter
+.custom-radio-icon{
+  color: #000000;
+}
+
+.products-page .products 
+.list-category-section 
+.category-main 
+.category-content {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.products-page .products .list-category-section .category-main .category-text{
+    width: auto;
+    height: auto;
+    color: #20181b;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-align: left;
+    
 }
 
 .products-page .products .list-category-section .category-main /* Qutining chizig‘i va belgilanish rangini qora qilish */
 .custom-black-checkbox .MuiSvgIcon-root {
-  width: 16px;
+    width: 16px;
     height: 15px;
     border-radius: 12px;
     margin-right: 10px;
@@ -595,7 +638,7 @@
 }
 
 .products-page .products .list-category-section .category-main .custom-checkbox-label .MuiFormControlLabel-label {
-  color: #181a20;
+    color: #181a20;
     font-family: Poppins, sans-serif;
     font-size: 14px;
     font-style: normal;
