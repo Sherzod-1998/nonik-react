@@ -212,7 +212,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             direction={"row"}
             sx={{ width: "700px" }}
           >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
+            <ModalImg src={"/img/auth.jpg"} alt="camera" />
             <Stack
               sx={{
                 marginLeft: "65px",
@@ -225,17 +225,27 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 id="outlined-basic"
                 label="username"
                 variant="outlined"
-                sx={{ my: "10px" }}
+                sx={{
+                  my: "10px",
+                  "& .MuiInputBase-input": { color: "black" },      // input yozuvi
+                  "& .MuiInputLabel-root": { color: "black" },      // label yozuvi
+                }}
                 onChange={handleUsername}
               />
+
               <TextField
-                id={"outlined-basic"}
-                label={"password"}
-                variant={"outlined"}
-                type={"password"}
+                id="outlined-basic"
+                label="password"
+                variant="outlined"
+                type="password"
+                sx={{
+                  "& .MuiInputBase-input": { color: "black" },
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
                 onChange={handlePassword}
                 onKeyDown={handlePasswordKeyDown}
               />
+
               <Fab
                 sx={{ marginTop: "27px", width: "120px" }}
                 variant={"extended"}

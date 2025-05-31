@@ -24,7 +24,7 @@ const light = {
 		},
 		text: {
 			primary: '#343434',
-			secondary: '#55dd80',
+			secondary: 'black',
 			dark: common.black,
 		},
 	},
