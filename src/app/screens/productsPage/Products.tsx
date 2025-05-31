@@ -133,6 +133,7 @@ export default function Products(props: ProductsProps) {
           </Stack>
 
           <Stack className="list-category-section">
+            
             <Stack className="category-main">
               <p className="category-text">Categories</p>
               <div className="category-content">
@@ -153,6 +154,7 @@ export default function Products(props: ProductsProps) {
                 ))}
               </div>
             </Stack>
+            
 
             <Stack className="product-wrapper">
               {products.length !== 0 ? (
@@ -224,7 +226,7 @@ export default function Products(props: ProductsProps) {
 
       <div className="brands-logo">
         <Container className="family-brands">
-          <Box className="category-title">Our Family Brands</Box>
+          <Box className="category-title">Our Top Brands</Box>
           <Stack className="brand-list">
             {["gurme", "sweets", "seafood", "doner"].map((img) => (
               <Box key={img} className="review-box">

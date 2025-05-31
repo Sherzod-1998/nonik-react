@@ -11,11 +11,11 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { Card, CardContent, Typography, CardActions } from '@mui/joy';
-import ProductList from "./ProductList";
+
 
 
 import { Grid } from '@mui/joy';
-import JoyProductCard from './JoyProductCard';
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
@@ -186,10 +186,6 @@ export default function ChosenProduct(props: ChosenProductProps) {
             </div>
           </Box>
         </Stack>
-      </Container>
-      <Container className="recommend-container">
-        <Box className={"category-title"}>Recommended</Box>
-        <ProductList />
       </Container>
     </div>
   );
