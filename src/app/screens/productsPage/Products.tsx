@@ -94,55 +94,57 @@ export default function Products(props: ProductsProps) {
           <Stack className="avatar-big-box">
             <Stack className="top-text">
               <p>Nonik Cosmetics</p>
-              <Stack className="single-search-big-box">
-                <input
-                  type="search"
-                  className="single-search-input"
-                  placeholder="Type here"
-                  value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && searchProductHandler()}
-                />
-                <Button
-                  className="single-button-search"
-                  variant="contained"
-                  endIcon={<SearchIcon />}
-                  onClick={searchProductHandler}
-                >
-                  Search
-                </Button>
-              </Stack>
+              
             </Stack>
           </Stack>
 
           <Stack className="list-category-section">
             
             <Stack className="category-main">
-
               
+              <div className="category-main-content">
+                    <p>Find your product</p>
+                    <Stack className="single-search-big-box">
+                      <input
+                        type="search"
+                        className="single-search-input"
+                        placeholder="What are you looking for?"
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && searchProductHandler()}
+                      />
+                      <Button
+                        className="single-button-search"
+                        variant="contained"
+                        endIcon={<SearchIcon />}
+                        onClick={searchProductHandler}
+                      >
+                        Search
+                      </Button>
+                    </Stack>
 
-              <p className="category-text">Filter</p>
-              <div className="category-filter">
-                <RadioGroup
-                  className="custom-radio-group"
-                  row
-                  value={productSearch.order}
-                  onChange={(e) => searchOrderHandler(e.target.value)}
-                >
-                  {[
-                    { label: "New", value: "createdAt" },
-                    { label: "Price", value: "productPrice" },
-                    { label: "Views", value: "productViews" },
-                  ].map((item) => (
-                    <FormControlLabel
-                      className="custom-radio-label"
-                      key={item.value}
-                      value={item.value}
-                      control={<Radio className="custom-radio-icon" />}
-                      label={item.label}
-                    />
-                  ))}
-                </RadioGroup>
+                    <p className="category-text">Filter</p>
+                    <div className="category-filter">
+                      <RadioGroup
+                        className="custom-radio-group"
+                        row
+                        value={productSearch.order}
+                        onChange={(e) => searchOrderHandler(e.target.value)}
+                      >
+                        {[
+                          { label: "New", value: "createdAt" },
+                          { label: "Price", value: "productPrice" },
+                          { label: "Views", value: "productViews" },
+                        ].map((item) => (
+                          <FormControlLabel
+                            className="custom-radio-label"
+                            key={item.value}
+                            value={item.value}
+                            control={<Radio className="custom-radio-icon" />}
+                            label={item.label}
+                          />
+                        ))}
+                      </RadioGroup>
               </div>
 
               <p className="category-text">Categories</p>
@@ -162,6 +164,7 @@ export default function Products(props: ProductsProps) {
                     label={collection.charAt(0) + collection.slice(1).toLowerCase()}
                   />
                 ))}
+              </div>
               </div>
               
             </Stack>

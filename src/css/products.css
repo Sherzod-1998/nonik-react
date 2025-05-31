@@ -49,54 +49,29 @@
 }
 
 .products-page .products .single-search-big-box {
-  position: relative;
-  width: 337px;
-  height: 33px;
+  margin-top: 15px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  background: #fffcfc;
-  border: 1px solid #f8f8ff;
-  box-shadow: 0px 4px 4px rgba(3, 99, 255, 0.25);
-  border-radius: 18.5px;
-  box-sizing: border-box;
+  margin-top: 5px;
+  background-color: #000000;
+  
 }
 
-.products-page .products .single-search-form {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.products-page .products .single-search-input {
-  position: relative;
-  width: 225px;
-  height: 30px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding-left: 10px;
-  display: flex;
-  border: none;
-  border-radius: 10px 0px 0px 10px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
+.products-page .products .single-search-big-box .single-search-input {
+      position: relative;
+    width: 200px;
+    height: 40px;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
 .products-page .products .single-button-search {
-  position: relative;
-  width: 100px;
-  height: 33px;
-  color: #d7b586;
+  color: #ffffff;
   display: flex;
-  border-radius: 18px;
-  background: #343434;
+  border-radius: 8px;
+  background: #000000;
 }
 
 .products-page .products .prev-btn,
@@ -560,26 +535,47 @@
   justify-content:flex-start;
   background-color: rgb(255, 255, 255);
   align-items: center;
-  
   height:fit-content;
   margin-top: 40px;
   color: black;
-  height:fit-content;
-  width: 150px;
-  
+  height:auto;
+  width: 339px;
+  border-radius: 2%;
+}
 
+.products-page .products .list-category-section .category-main .category-main-content {
+  margin-left: 10px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items:flex-start;
 }
 
 .products-page 
 .products 
 .list-category-section 
 .category-main 
+.category-main-content
+p {
+  width: auto;
+    height: auto;
+    color: #181a20;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.products-page 
+.products 
+.list-category-section 
+.category-main 
 .category-filter{
-  
    display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 13px;
+  flex-direction: row;
 }
 
 .products-page 
@@ -612,6 +608,7 @@
 .category-content {
   display: flex;
   flex-direction: column;
+  color: red;
   
 }
 
