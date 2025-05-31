@@ -141,30 +141,45 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             direction={"row"}
             sx={{ width: "800px" }}
           >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
+            <ModalImg src={"/img/auth.jpg"} alt="camera" />
             <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
               <h2>Signup Form</h2>
               <TextField
-                sx={{ marginTop: "7px" }}
-                id="outlined-basic"
-                label="username"
-                variant="outlined"
-                onChange={handleUsername}
-              />
-              <TextField
-                sx={{ my: "17px" }}
-                id="outlined-basic"
-                label="phone number"
-                variant="outlined"
-                onChange={handlePhone}
-              />
-              <TextField
-                id="outlined-basic"
-                label="password"
-                variant="outlined"
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
+  sx={{
+    marginTop: "7px",
+    "& .MuiInputBase-input": { color: "black" },       // input yozuvi
+    "& .MuiInputLabel-root": { color: "black" },       // label yozuvi
+  }}
+  id="outlined-basic"
+  label="username"
+  variant="outlined"
+  onChange={handleUsername}
+/>
+
+<TextField
+  sx={{
+    my: "17px",
+    "& .MuiInputBase-input": { color: "black" },
+    "& .MuiInputLabel-root": { color: "black" },
+  }}
+  id="outlined-basic"
+  label="phone number"
+  variant="outlined"
+  onChange={handlePhone}
+/>
+
+<TextField
+  sx={{
+    "& .MuiInputBase-input": { color: "black" },
+    "& .MuiInputLabel-root": { color: "black" },
+  }}
+  id="outlined-basic"
+  label="password"
+  variant="outlined"
+  onChange={handlePassword}
+  onKeyDown={handlePasswordKeyDown}
+/>
+
               <Fab
                 sx={{ marginTop: "30px", width: "120px" }}
                 variant="extended"
