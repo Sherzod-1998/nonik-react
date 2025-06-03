@@ -64,7 +64,7 @@ export default function HomePage() {
       <Statistics />
       <PopularDishes />
       <NewDishes />
-      {/* <Advertisement /> */}
+      <Advertisement />
       <ActiveUsers />
       <Events />
     </div>

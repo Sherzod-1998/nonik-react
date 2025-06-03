@@ -93,7 +93,8 @@ export default function Products(props: ProductsProps) {
         <Stack flexDirection="column" alignItems="center">
           <Stack className="avatar-big-box">
             <Stack className="top-text">
-              <p>Nonik Cosmetics</p>
+              <p style={{ color: "black", fontWeight: "bold" }}>Nonik Cosmetics</p>
+
               
             </Stack>
           </Stack>
@@ -257,7 +258,7 @@ export default function Products(props: ProductsProps) {
             <Box className="title">Our address</Box>
             <iframe
               style={{ marginTop: '60px', border: 0 }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.951838153209!2d126.8369961!3d37.6650719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7b8c8c8c8c8c%3A0x9c5015eab678e435!2sGoyang-daero%20592%2C%20Goyang-si%2C%20Gyeonggi-do%2C%20South%20Korea!5e0!3m2!1sen!2skr!4v1655461169573!5m2!1sen!2skr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.119026111128!2d69.2401!3d41.2995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4b1e01ab3cf%3A0x123456789abcdef!2sYour%20Business%20Name!5e0!3m2!1sen!2s!4v1621234567890"
               width="1320"
               height="500"
               referrerPolicy="no-referrer-when-downgrade"
