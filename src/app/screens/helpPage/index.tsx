@@ -70,6 +70,9 @@ export default function HelpPage() {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
                 className={"table_list"}
+                variant="scrollable"
+                scrollButtons="auto"
+                allowScrollButtonsMobile
               >
                 <Tab label="TERMS" value={"1"} />
                 <Tab label="FAQ" value={"2"} />

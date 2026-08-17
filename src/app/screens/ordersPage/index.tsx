@@ -79,6 +79,9 @@ export default function OrdersPage() {
                   onChange={handleChange}
                   aria-label="basic tabs example"
                   className={"table_list"}
+                  variant="scrollable"
+                  scrollButtons="auto"
+                  allowScrollButtonsMobile
                 >
                   <Tab label="PAUSED ORDERS" value={"1"} />
                   <Tab label="PROCESS ORDERS" value={"2"} />
