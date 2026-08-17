@@ -769,6 +769,65 @@ p {
   margin-right: 10px;
 }
 
+/* Mobile filter drawer */
+.products-page .products .list-category-section .mobile-filter-toggle-btn {
+  margin: 40px 0 20px;
+  color: #181a20;
+  border-color: #e7e0d8;
+  background: #faf6f1;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
+
+.products-page .products .mobile-filter-drawer .mobile-filter-drawer-paper {
+  background: #faf6f1;
+  border: 1px solid #e7e0d8;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  max-height: 85vh;
+  padding: 16px 20px 20px;
+}
+
+.products-page .products .mobile-filter-drawer .mobile-filter-drawer-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e7e0d8;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.products-page .products .mobile-filter-drawer .mobile-filter-drawer-title {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #181a20;
+}
+
+.products-page .products .mobile-filter-drawer .mobile-filter-close-btn {
+  min-width: auto;
+  padding: 4px;
+  color: #181a20;
+}
+
+.products-page .products .mobile-filter-drawer .mobile-filter-drawer-content {
+  width: 100%;
+  overflow-y: auto;
+  background: transparent;
+  height: auto;
+  margin-top: 0;
+}
+
+.products-page .products .mobile-filter-drawer .mobile-filter-apply-btn {
+  margin-top: 16px;
+  width: 100%;
+  background: #181a20;
+  color: #ffffff;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
+
 .products-page .products .css-1p7b7rs-MuiBadge-badge {
   position: absolute;
   top: 26%;

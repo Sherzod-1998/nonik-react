@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { Box, Button, Container, Stack, Checkbox, FormControlLabel, Badge, Pagination, PaginationItem, Chip, Skeleton, Slider } from "@mui/material";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import { Box, Button, Container, Stack, Checkbox, FormControlLabel, Badge, Pagination, PaginationItem, Chip, Skeleton, Slider, Drawer, useMediaQuery, useTheme } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -7,6 +7,8 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { setProducts } from "./slice";
@@ -59,6 +61,10 @@ export default function Products(props: ProductsProps) {
   const [priceRange, setPriceRange] = useState<number[]>([0, MAX_PRICE]);
   const history = useHistory();
   const { authMember } = useGlobals();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
+  const listCategorySectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const product = new ProductService();
@@ -178,6 +184,110 @@ export default function Products(props: ProductsProps) {
     }
   };
 
+  const filterContent = (
+    <div className="category-main-content">
+      <p>Find your product</p>
+      <Stack className="single-search-big-box">
+        <input
+          type="search"
+          className="single-search-input"
+          placeholder="What are you looking for?"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && searchProductHandler()}
+        />
+        <Button
+          className="single-button-search"
+          variant="contained"
+          endIcon={<SearchIcon />}
+          onClick={searchProductHandler}
+        >
+          Search
+        </Button>
+      </Stack>
+
+      <p className="category-text">Filter</p>
+      <div className="category-filter">
+        <RadioGroup
+          className="custom-radio-group"
+          row
+          value={productSearch.order}
+          onChange={(e) => searchOrderHandler(e.target.value)}
+        >
+          {[
+            { label: "New", value: "createdAt" },
+            { label: "Price", value: "productPrice" },
+            { label: "Views", value: "productViews" },
+          ].map((item) => (
+            <FormControlLabel
+              className="custom-radio-label"
+              key={item.value}
+              value={item.value}
+              control={<Radio className="custom-radio-icon" />}
+              label={item.label}
+            />
+          ))}
+        </RadioGroup>
+      </div>
+
+      <p className="category-text">Categories</p>
+      <div className="category-content">
+        {Object.values(ProductCollection).map((collection) => (
+          <FormControlLabel
+            key={collection}
+            className="custom-checkbox-label"
+            control={
+              <Checkbox
+                className="custom-black-checkbox"
+                checked={productSearch.productCollection.includes(collection)}
+                onChange={() => searchCollectionHandler(collection)}
+                color="primary"
+              />
+            }
+            label={collection.charAt(0) + collection.slice(1).toLowerCase()}
+          />
+        ))}
+      </div>
+
+      <p className="category-text">Brands</p>
+      <div className="category-content">
+        {Object.values(BrandCollection).map((brand) => (
+          <FormControlLabel
+            key={brand}
+            className="custom-checkbox-label"
+            control={
+              <Checkbox
+                className="custom-black-checkbox"
+                checked={(productSearch.brandCollection ?? []).includes(brand)}
+                onChange={() => searchBrandHandler(brand)}
+                color="primary"
+              />
+            }
+            label={brand.charAt(0) + brand.slice(1).toLowerCase()}
+          />
+        ))}
+      </div>
+
+      <p className="category-text">Price Range</p>
+      <div className="price-range-content">
+        <Slider
+          className="price-range-slider"
+          value={priceRange}
+          onChange={searchPriceHandler}
+          onChangeCommitted={searchPriceCommittedHandler}
+          valueLabelDisplay="auto"
+          min={0}
+          max={MAX_PRICE}
+          color="secondary"
+        />
+        <Stack className="price-range-labels">
+          <span>${priceRange[0]}</span>
+          <span>${priceRange[1]}</span>
+        </Stack>
+      </div>
+    </div>
+  );
+
   return (
     <div className="products">
       <Container>
@@ -186,117 +296,56 @@ export default function Products(props: ProductsProps) {
             <Stack className="top-text">
               <p style={{ color: "black", fontWeight: "bold" }}>Nonik Cosmetics</p>
 
-              
+
             </Stack>
           </Stack>
 
-          <Stack className="list-category-section">
-            
-            <Stack className="category-main">
-              
-              <div className="category-main-content">
-                    <p>Find your product</p>
-                    <Stack className="single-search-big-box">
-                      <input
-                        type="search"
-                        className="single-search-input"
-                        placeholder="What are you looking for?"
-                        value={searchText}
-                        onChange={(e) => setSearchText(e.target.value)}
-                        onKeyDown={(e) => e.key === "Enter" && searchProductHandler()}
-                      />
-                      <Button
-                        className="single-button-search"
-                        variant="contained"
-                        endIcon={<SearchIcon />}
-                        onClick={searchProductHandler}
-                      >
-                        Search
-                      </Button>
-                    </Stack>
+          <Stack className="list-category-section" ref={listCategorySectionRef}>
 
-                    <p className="category-text">Filter</p>
-                    <div className="category-filter">
-                      <RadioGroup
-                        className="custom-radio-group"
-                        row
-                        value={productSearch.order}
-                        onChange={(e) => searchOrderHandler(e.target.value)}
-                      >
-                        {[
-                          { label: "New", value: "createdAt" },
-                          { label: "Price", value: "productPrice" },
-                          { label: "Views", value: "productViews" },
-                        ].map((item) => (
-                          <FormControlLabel
-                            className="custom-radio-label"
-                            key={item.value}
-                            value={item.value}
-                            control={<Radio className="custom-radio-icon" />}
-                            label={item.label}
-                          />
-                        ))}
-                      </RadioGroup>
-              </div>
-
-              <p className="category-text">Categories</p>
-              <div className="category-content">
-                {Object.values(ProductCollection).map((collection) => (
-                  <FormControlLabel
-                    key={collection}
-                    className="custom-checkbox-label"
-                    control={
-                      <Checkbox
-                        className="custom-black-checkbox"
-                        checked={productSearch.productCollection.includes(collection)}
-                        onChange={() => searchCollectionHandler(collection)}
-                        color="primary"
-                      />
-                    }
-                    label={collection.charAt(0) + collection.slice(1).toLowerCase()}
-                  />
-                ))}
-              </div>
-
-              <p className="category-text">Brands</p>
-              <div className="category-content">
-                {Object.values(BrandCollection).map((brand) => (
-                  <FormControlLabel
-                    key={brand}
-                    className="custom-checkbox-label"
-                    control={
-                      <Checkbox
-                        className="custom-black-checkbox"
-                        checked={(productSearch.brandCollection ?? []).includes(brand)}
-                        onChange={() => searchBrandHandler(brand)}
-                        color="primary"
-                      />
-                    }
-                    label={brand.charAt(0) + brand.slice(1).toLowerCase()}
-                  />
-                ))}
-              </div>
-
-              <p className="category-text">Price Range</p>
-              <div className="price-range-content">
-                <Slider
-                  className="price-range-slider"
-                  value={priceRange}
-                  onChange={searchPriceHandler}
-                  onChangeCommitted={searchPriceCommittedHandler}
-                  valueLabelDisplay="auto"
-                  min={0}
-                  max={MAX_PRICE}
-                  color="secondary"
-                />
-                <Stack className="price-range-labels">
-                  <span>${priceRange[0]}</span>
-                  <span>${priceRange[1]}</span>
-                </Stack>
-              </div>
-              </div>
-
-            </Stack>
+            {isMobile ? (
+              <>
+                <Button
+                  className="mobile-filter-toggle-btn"
+                  variant="outlined"
+                  startIcon={<FilterListIcon />}
+                  onClick={() => setFilterDrawerOpen(true)}
+                >
+                  Filters
+                </Button>
+                <Drawer
+                  anchor="bottom"
+                  open={filterDrawerOpen}
+                  onClose={() => setFilterDrawerOpen(false)}
+                  className="mobile-filter-drawer"
+                  PaperProps={{ className: "mobile-filter-drawer-paper" }}
+                  container={() => listCategorySectionRef.current ?? document.body}
+                >
+                  <Stack className="mobile-filter-drawer-header">
+                    <p className="mobile-filter-drawer-title">Filters</p>
+                    <Button
+                      className="mobile-filter-close-btn"
+                      onClick={() => setFilterDrawerOpen(false)}
+                    >
+                      <CloseIcon />
+                    </Button>
+                  </Stack>
+                  <Stack className="category-main mobile-filter-drawer-content">
+                    {filterContent}
+                  </Stack>
+                  <Button
+                    className="mobile-filter-apply-btn"
+                    variant="contained"
+                    onClick={() => setFilterDrawerOpen(false)}
+                  >
+                    Show {products.length} results
+                  </Button>
+                </Drawer>
+              </>
+            ) : (
+              <Stack className="category-main">
+                {filterContent}
+              </Stack>
+            )}
 
 
             <Stack className="product-column">
