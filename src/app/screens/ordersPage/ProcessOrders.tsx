@@ -15,7 +15,7 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 
 import { T } from "../../../lib/types/common";
-import { sweetErrorHandling } from "../../../lib/swettAlert";
+import { sweetErrorHandling, sweetConfirmAlert } from "../../../lib/swettAlert";
 
 /** Redux slice and selector */
 const processOrdersRetriever = createSelector(
@@ -44,7 +44,9 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
         orderStatus: OrderStatus.FINISH,
       };
 
-      const confirmation = window.confirm("Have you received your order?");
+      const confirmation = await sweetConfirmAlert(
+        "Have you received your order?"
+      );
       if (confirmation) {
         const order = new OrderService();
         await order.updateOrder(input);
@@ -102,7 +104,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
                   <p>${order.orderTotal}</p>
                 </Box>
                 <p className={"data-compl"}>
-                  {moment().format("YY-MM-DD HH:mm")}
+                  {moment(order.updatedAt).format("YY-MM-DD HH:mm")}
                 </p>
                 <Button
                   value={order._id}
@@ -117,19 +119,22 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
           );
         })}
 
-        {!processOrders ||
-          (processOrders.length === 0 && (
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"center"}
-            >
-              <img
-                src={"/icons/noimage-list.svg"}
-                style={{ width: 300, height: 300 }}
-              />
-            </Box>
-          ))}
+        {(!processOrders || processOrders.length === 0) && (
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <img
+              src={"/icons/noimage-list.svg"}
+              style={{ width: 300, height: 300 }}
+            />
+            <p style={{ fontFamily: "Nunito", marginTop: "10px" }}>
+              No orders in progress.
+            </p>
+          </Box>
+        )}
       </Stack>
     </TabPanel>
   );

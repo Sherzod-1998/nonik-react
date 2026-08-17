@@ -12,7 +12,7 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
 import { T } from "../../../lib/types/common";
-import { sweetErrorHandling } from "../../../lib/swettAlert";
+import { sweetErrorHandling, sweetConfirmAlert } from "../../../lib/swettAlert";
 
 
 /** Redux slice and selector */
@@ -41,7 +41,9 @@ export default function PausedOrders(props: PausedOrdersProps) {
         orderStatus: OrderStatus.DELETE,
       };
 
-      const confirmation = window.confirm("Do you want to delete the order?");
+      const confirmation = await sweetConfirmAlert(
+        "Do you want to delete the order?"
+      );
       if (confirmation) {
         const order = new OrderService();
         await order.updateOrder(input);
@@ -64,7 +66,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
         orderStatus: OrderStatus.PROCESS,
       };
 
-      const confirmation = window.confirm(
+      const confirmation = await sweetConfirmAlert(
         "Do you want to proceed with payment?"
       );
       if (confirmation) {
@@ -145,19 +147,22 @@ export default function PausedOrders(props: PausedOrdersProps) {
           );
         })}
 
-        {!pausedOrders ||
-          (pausedOrders.length === 0 && (
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"center"}
-            >
-              <img
-                src={"/icons/noimage-list.svg"}
-                style={{ width: 300, height: 300 }}
-              />
-            </Box>
-          ))}
+        {(!pausedOrders || pausedOrders.length === 0) && (
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <img
+              src={"/icons/noimage-list.svg"}
+              style={{ width: 300, height: 300 }}
+            />
+            <p style={{ fontFamily: "Nunito", marginTop: "10px" }}>
+              No paused orders yet.
+            </p>
+          </Box>
+        )}
       </Stack>
     </TabPanel>
   );
