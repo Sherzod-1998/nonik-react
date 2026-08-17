@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, Container, IconButton, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import { CssVarsProvider } from "@mui/joy/styles";
+import IconButton from "@mui/joy/IconButton";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
