@@ -25,4 +25,7 @@ import {
     limit: number;
     productCollection: ProductCollection[],
     search?: string;
+    brandCollection?: BrandCollection[];
+    minPrice?: number;
+    maxPrice?: number;
   }

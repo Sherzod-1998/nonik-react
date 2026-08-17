@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Box, Button, Container, Stack, Checkbox, FormControlLabel, Badge, Pagination, PaginationItem, Chip, Skeleton } from "@mui/material";
+import { Box, Button, Container, Stack, Checkbox, FormControlLabel, Badge, Pagination, PaginationItem, Chip, Skeleton, Slider } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -14,7 +14,7 @@ import { Product, ProductInquiry } from "../../../lib/types/product";
 import { retrieveProducts } from "./selector";
 import ProductService from "../../services/ProductService";
 import FavoriteService from "../../services/FavoriteService";
-import { ProductCollection } from "../../../lib/enums/product.enum";
+import { BrandCollection, ProductCollection } from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
@@ -30,11 +30,14 @@ const productRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
+const MAX_PRICE = 200;
+
 const initialProductSearch: ProductInquiry = {
   page: 1,
   limit: 8,
   order: "createdAt",
   productCollection: [],
+  brandCollection: [],
   search: "",
 };
 
@@ -52,6 +55,8 @@ export default function Products(props: ProductsProps) {
   const [searchText, setSearchText] = useState<string>("");
   const [likedIds, setLikedIds] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [totalCount, setTotalCount] = useState<number>(0);
+  const [priceRange, setPriceRange] = useState<number[]>([0, MAX_PRICE]);
   const history = useHistory();
   const { authMember } = useGlobals();
 
@@ -59,8 +64,11 @@ export default function Products(props: ProductsProps) {
     const product = new ProductService();
     setIsLoading(true);
     product
-      .getProducts(productSearch)
-      .then((data) => setProducts(data))
+      .getProductsWithCount(productSearch)
+      .then(({ products, total }) => {
+        setProducts(products);
+        setTotalCount(total);
+      })
       .catch((err) => console.error(err))
       .finally(() => setIsLoading(false));
   }, [productSearch]);
@@ -84,6 +92,47 @@ export default function Products(props: ProductsProps) {
     });
   };
 
+  const searchBrandHandler = (brand: BrandCollection) => {
+    const currentBrands = productSearch.brandCollection ?? [];
+    const isSelected = currentBrands.includes(brand);
+    const updatedBrands = isSelected
+      ? currentBrands.filter((b) => b !== brand)
+      : [...currentBrands, brand];
+
+    setProductSearch({
+      ...productSearch,
+      page: 1,
+      brandCollection: updatedBrands,
+    });
+  };
+
+  const searchPriceHandler = (event: Event, newValue: number | number[]) => {
+    setPriceRange(newValue as number[]);
+  };
+
+  const searchPriceCommittedHandler = (
+    event: Event | React.SyntheticEvent,
+    newValue: number | number[]
+  ) => {
+    const [min, max] = newValue as number[];
+    setProductSearch({
+      ...productSearch,
+      page: 1,
+      minPrice: min,
+      maxPrice: max,
+    });
+  };
+
+  const removePriceFilterHandler = () => {
+    setPriceRange([0, MAX_PRICE]);
+    setProductSearch({
+      ...productSearch,
+      page: 1,
+      minPrice: undefined,
+      maxPrice: undefined,
+    });
+  };
+
   const searchOrderHandler = (order: string) => {
     setProductSearch({ ...productSearch, page: 1, order });
   };
@@ -99,6 +148,7 @@ export default function Products(props: ProductsProps) {
 
   const clearFiltersHandler = () => {
     setSearchText("");
+    setPriceRange([0, MAX_PRICE]);
     setProductSearch({ ...initialProductSearch });
   };
 
@@ -207,8 +257,45 @@ export default function Products(props: ProductsProps) {
                   />
                 ))}
               </div>
+
+              <p className="category-text">Brands</p>
+              <div className="category-content">
+                {Object.values(BrandCollection).map((brand) => (
+                  <FormControlLabel
+                    key={brand}
+                    className="custom-checkbox-label"
+                    control={
+                      <Checkbox
+                        className="custom-black-checkbox"
+                        checked={(productSearch.brandCollection ?? []).includes(brand)}
+                        onChange={() => searchBrandHandler(brand)}
+                        color="primary"
+                      />
+                    }
+                    label={brand.charAt(0) + brand.slice(1).toLowerCase()}
+                  />
+                ))}
               </div>
-              
+
+              <p className="category-text">Price Range</p>
+              <div className="price-range-content">
+                <Slider
+                  className="price-range-slider"
+                  value={priceRange}
+                  onChange={searchPriceHandler}
+                  onChangeCommitted={searchPriceCommittedHandler}
+                  valueLabelDisplay="auto"
+                  min={0}
+                  max={MAX_PRICE}
+                  color="secondary"
+                />
+                <Stack className="price-range-labels">
+                  <span>${priceRange[0]}</span>
+                  <span>${priceRange[1]}</span>
+                </Stack>
+              </div>
+              </div>
+
             </Stack>
 
 
@@ -218,6 +305,9 @@ export default function Products(props: ProductsProps) {
                   Showing {products.length} products
                 </span>
                 {(productSearch.productCollection.length > 0 ||
+                  (productSearch.brandCollection ?? []).length > 0 ||
+                  productSearch.minPrice !== undefined ||
+                  productSearch.maxPrice !== undefined ||
                   Boolean(productSearch.search)) && (
                   <Stack className="active-filters">
                     {productSearch.productCollection.map((collection) => (
@@ -228,6 +318,22 @@ export default function Products(props: ProductsProps) {
                         onDelete={() => searchCollectionHandler(collection)}
                       />
                     ))}
+                    {(productSearch.brandCollection ?? []).map((brand) => (
+                      <Chip
+                        key={brand}
+                        className="filter-chip"
+                        label={brand.charAt(0) + brand.slice(1).toLowerCase()}
+                        onDelete={() => searchBrandHandler(brand)}
+                      />
+                    ))}
+                    {(productSearch.minPrice !== undefined ||
+                      productSearch.maxPrice !== undefined) && (
+                      <Chip
+                        className="filter-chip"
+                        label={`Price: $${priceRange[0]}–$${priceRange[1]}`}
+                        onDelete={removePriceFilterHandler}
+                      />
+                    )}
                     {productSearch.search && (
                       <Chip
                         className="filter-chip"
@@ -319,7 +425,7 @@ export default function Products(props: ProductsProps) {
 
           <Stack className="pagination-section">
             <Pagination
-              count={products.length !== 0 ? productSearch.page + 1 : productSearch.page}
+              count={Math.max(1, Math.ceil(totalCount / productSearch.limit))}
               page={productSearch.page}
               renderItem={(item) => (
                 <PaginationItem
