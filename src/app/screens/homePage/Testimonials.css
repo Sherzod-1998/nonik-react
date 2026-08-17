@@ -1,0 +1,147 @@
+/** TESTIMONIALS **/
+
+.homepage .testimonials-frame {
+  width: 100%;
+  height: auto;
+  padding: 60px 0;
+  background: #ececfe;
+  display: flex;
+}
+
+.homepage .testimonials-frame .category-title {
+  color: rgb(0, 0, 0);
+  font-family: "Playfair Display";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.homepage .testimonials-frame .testimonials-main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage .testimonials-frame .testimonials-text {
+  width: auto;
+  height: 70px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage .testimonials-frame .testimonials-info {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage .testimonials-frame .testimonial-card {
+  position: relative;
+  height: auto;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 24px 24px 24px;
+  background: #f8f8ff;
+  border-radius: 16px;
+  box-shadow: 0px 10px 30px rgba(25, 25, 46, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.homepage .testimonials-frame .testimonial-card:hover {
+  transform: translateY(-6px);
+}
+
+.homepage .testimonials-frame .testimonial-quote-mark {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  line-height: 30px;
+  color: #d9d3ff;
+  margin-bottom: 10px;
+}
+
+.homepage .testimonials-frame .testimonial-quote {
+  flex: 1;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.homepage .testimonials-frame .star-rating {
+  display: flex;
+  flex-direction: row;
+  margin-top: 16px;
+}
+
+.homepage .testimonials-frame .star-icon {
+  font-size: 20px;
+  color: #d9d3ff;
+}
+
+.homepage .testimonials-frame .star-icon.filled {
+  color: #eecd39;
+}
+
+.homepage .testimonials-frame .testimonial-reviewer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.homepage .testimonials-frame .testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+  background: #ececfe;
+}
+
+.homepage .testimonials-frame .testimonial-name {
+  font-family: "Roboto Serif";
+  font-weight: 600;
+  font-size: 15px;
+  color: #140342;
+}
+
+.homepage .testimonials-frame .prev-next-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin: 30px 0 0 0;
+  height: 25px;
+}
+
+.homepage .testimonials-frame .dot-frame-pagination {
+  position: relative;
+  width: auto;
+  display: flex;
+}
+
+.homepage .testimonials-frame .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: #d9d3ff;
+  border-radius: 50%;
+}
+
+.homepage .testimonials-frame .swiper-pagination-bullet-active {
+  background: #343434;
+  border-radius: 50%;
+}
