@@ -1,0 +1,76 @@
+/** SHOP BY CATEGORY **/
+
+.homepage .category-nav-frame {
+  width: 100%;
+  height: auto;
+  background: #ececfe;
+  display: flex;
+}
+
+.homepage .category-nav-frame .category-nav-section {
+  width: 100%;
+  margin: 45px 0 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .category-nav-frame .category-nav-grid {
+  width: 100%;
+  margin-top: 43px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.homepage .category-nav-frame .category-nav-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 140px;
+  padding: 20px 10px;
+  cursor: pointer;
+  background-color: #fafbfb;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homepage .category-nav-frame .category-nav-tile:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.homepage .category-nav-frame .category-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #d4a373;
+}
+
+.homepage .category-nav-frame .category-nav-icon svg {
+  font-size: 36px;
+}
+
+.homepage .category-nav-frame .category-nav-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #343434;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .homepage .category-nav-frame .category-nav-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .homepage .category-nav-frame .category-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
