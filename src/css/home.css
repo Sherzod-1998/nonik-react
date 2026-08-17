@@ -546,3 +546,116 @@ text-align: left;
   background: #343434;
   border-radius: 50%;
 }
+
+/** RESPONSIVE **/
+
+@media (max-width: 768px) {
+  .homepage .static-frame {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .homepage .static-frame .info {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 24px;
+  }
+
+  .homepage .static-frame .info > span {
+    display: none;
+  }
+
+  .homepage .static-frame .info .static-box {
+    width: 50%;
+    height: auto;
+  }
+
+  .homepage .static-frame .info .static-box .static-num {
+    font-size: 40px;
+  }
+
+  .homepage .static-frame .info .static-box .static-text {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .homepage .popular-dishes-frame {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .homepage .popular-dishes-frame .popular-section .cards-frame {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .homepage .popular-dishes-frame .cards-frame .card {
+    min-width: calc(50% - 10px);
+    width: calc(50% - 10px);
+  }
+
+  .homepage .new-products-frame,
+  .homepage .active-users-frame {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .homepage .new-products-frame .main .cards-frame,
+  .homepage .active-users-frame .main .cards-frame {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .homepage .new-products-frame .main .card,
+  .homepage .active-users-frame .main .card {
+    width: calc(50% - 10px);
+  }
+
+  .homepage .events-frame {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .homepage .events-frame .events-main .events-info {
+    flex-direction: column;
+  }
+
+  .homepage .events-frame .events-info .events-info-frame {
+    width: 100%;
+  }
+
+  .homepage .events-frame .events-main .prev-next-frame {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .static-frame .info .static-box {
+    width: 100%;
+  }
+
+  .homepage .static-frame .info .static-box .static-num {
+    font-size: 34px;
+  }
+
+  .homepage .static-frame .info .static-box .static-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .homepage .popular-dishes-frame .popular-section .category-title {
+    font-size: 26px;
+  }
+
+  .homepage .popular-dishes-frame .cards-frame .card {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .homepage .new-products-frame .main .card,
+  .homepage .active-users-frame .main .card {
+    width: 100%;
+  }
+}

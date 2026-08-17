@@ -100,3 +100,15 @@
     max-width: 320px;
   }
 }
+
+@media (max-width: 480px) {
+  .homepage .brand-story-frame .category-title {
+    font-size: 26px;
+  }
+
+  .homepage .brand-story-frame .brand-story-quote {
+    font-size: 17px;
+    line-height: 28px;
+    padding: 4px 0 4px 20px;
+  }
+}

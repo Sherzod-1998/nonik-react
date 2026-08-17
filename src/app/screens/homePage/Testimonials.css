@@ -145,3 +145,31 @@
   background: #343434;
   border-radius: 50%;
 }
+
+/** RESPONSIVE **/
+
+@media (max-width: 768px) {
+  .homepage .testimonials-frame .category-title {
+    font-size: 26px;
+  }
+
+  .homepage .testimonials-frame .testimonial-card {
+    padding: 24px 18px 18px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .testimonials-frame .testimonial-card {
+    min-height: 220px;
+    padding: 20px 16px 16px 16px;
+  }
+
+  .homepage .testimonials-frame .testimonial-quote {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .homepage .testimonials-frame .prev-next-frame {
+    width: 100%;
+  }
+}

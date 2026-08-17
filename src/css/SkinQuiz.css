@@ -146,3 +146,40 @@
   border-color: #d4a373;
   color: #d4a373;
 }
+
+/** RESPONSIVE **/
+
+@media (max-width: 768px) {
+  .homepage .skin-quiz-frame .skin-quiz-card {
+    padding: 30px 20px;
+  }
+
+  .homepage .skin-quiz-frame .skin-quiz-question {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage .skin-quiz-frame .category-title {
+    font-size: 26px;
+  }
+
+  .homepage .skin-quiz-frame .skin-quiz-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .homepage .skin-quiz-frame .skin-quiz-question {
+    font-size: 18px;
+  }
+
+  .homepage .skin-quiz-frame .skin-quiz-chip {
+    font-size: 13px;
+    padding: 14px 8px;
+  }
+
+  .homepage .skin-quiz-frame .skin-quiz-result-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
