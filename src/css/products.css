@@ -821,6 +821,7 @@ p {
 
 /* Mobile filter drawer */
 .products-page .products .list-category-section .mobile-filter-toggle-btn {
+  align-self: flex-start;
   margin: 40px 0 20px;
   color: #181a20;
   border-color: #e7e0d8;
