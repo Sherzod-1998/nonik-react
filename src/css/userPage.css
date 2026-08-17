@@ -143,12 +143,42 @@
 	color: #a1a1a1;
 }
 
-.user-page .order-info-box .user-media-box {
+.user-page .order-info-box .loyalty-points-badge {
 	margin-top: 10px;
-	width: 60%;
+	padding: 6px 16px;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	align-items: center;
+	gap: 6px;
+	background: #d7b586;
+	border-radius: 20px;
+	font-family: 'Commissioner';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	color: #08090d;
+}
+
+.user-page .order-info-box .my-orders-link {
+	margin-top: 15px;
+	padding: 10px 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: transparent;
+	border: 1px solid #d7b586;
+	border-radius: 8px;
+	text-decoration: none;
+	font-family: 'Commissioner';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 16px;
+	color: #d7b586;
+	transition: background 0.3s ease, color 0.3s ease;
+}
+
+.user-page .order-info-box .my-orders-link:hover {
+	background: #d7b586;
+	color: #08090d;
 }
 
 .user-page .order-info-box .user-desc {
@@ -336,6 +366,16 @@
 	margin-top: 25px;
 }
 
+.user-page .settings .change-password-frame {
+	margin-top: 40px;
+	padding-top: 25px;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid #f8f8ff;
+}
+
 .user-page .my-page-wishlist {
 	width: 100%;
 	height: auto;
@@ -367,6 +407,7 @@
 }
 
 .user-page .my-page-wishlist .wishlist-card {
+	position: relative;
 	width: 180px;
 	display: flex;
 	flex-direction: column;
@@ -381,6 +422,35 @@
 
 .user-page .my-page-wishlist .wishlist-card:hover {
 	transform: translateY(-5px);
+}
+
+.user-page .my-page-wishlist .wishlist-card .wishlist-remove-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 10;
+	padding: 5px;
+	min-width: 28px;
+	width: 28px;
+	height: 28px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.4);
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.user-page .my-page-wishlist .wishlist-card .wishlist-remove-btn:hover {
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.user-page .my-page-wishlist .wishlist-card .wishlist-remove-btn img {
+	width: 12px;
+	height: 12px;
+	filter: invert(1);
 }
 
 .user-page .my-page-wishlist .wishlist-card-img {

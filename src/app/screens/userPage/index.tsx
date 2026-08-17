@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 import { Box, Container, Stack } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link, useHistory } from "react-router-dom";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
@@ -18,7 +14,9 @@ export default function UserPage() {
   const { authMember } = useGlobals();
   const [favorites, setFavorites] = useState<Product[]>([]);
 
-  if (!authMember) history.push("/");
+  useEffect(() => {
+    if (!authMember) history.push("/");
+  }, [authMember, history]);
 
   useEffect(() => {
     const favoriteService = new FavoriteService();
@@ -27,6 +25,21 @@ export default function UserPage() {
       .then((data) => setFavorites(data))
       .catch((err) => console.error(err));
   }, []);
+
+  const handleRemoveFavorite = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    productId: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const favoriteService = new FavoriteService();
+    favoriteService
+      .toggleFavorite(productId)
+      .then(() => {
+        setFavorites((prev) => prev.filter((p) => p._id !== productId));
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className={"user-page"}>
@@ -78,12 +91,12 @@ export default function UserPage() {
                     ? authMember.memberAddress
                     : "no address"}
                 </span>
-              </Box>
-              <Box className={"user-media-box"}>
-                <FacebookIcon />
-                <InstagramIcon />
-                <TelegramIcon />
-                <YouTubeIcon />
+                <span className={"loyalty-points-badge"}>
+                  {"🏅"} {authMember?.memberPoints ?? 0} points
+                </span>
+                <Link to={"/orders"} className={"my-orders-link"}>
+                  My Orders
+                </Link>
               </Box>
               <p className={"user-desc"}>
                 {authMember?.memberDesc
@@ -106,6 +119,12 @@ export default function UserPage() {
                     to={`/products/${product._id}`}
                     className={"wishlist-card"}
                   >
+                    <button
+                      className={"wishlist-remove-btn"}
+                      onClick={(e) => handleRemoveFavorite(e, product._id)}
+                    >
+                      <img src={"/icons/close.svg"} alt={"remove"} />
+                    </button>
                     <img
                       src={imagePath}
                       alt={product.productName}
