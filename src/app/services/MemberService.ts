@@ -43,6 +43,18 @@ class MemberService {
     await axiosInstance.post("/member/logout", {}, { withCredentials: true });
   }
 
+  public async getMemberDetail(): Promise<Member | null> {
+    try {
+      const result = await axiosInstance.get("/member/detail", {
+        withCredentials: true,
+      });
+
+      return result.data;
+    } catch (err) {
+      return null;
+    }
+  }
+
   public async updateMember(input: MemberUpdateInput): Promise<Member> {
     const formData = new FormData();
     formData.append("memberNick", input.memberNick || "");
