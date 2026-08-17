@@ -204,16 +204,28 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  background: #ffffff;
+  border: 1px solid #e7e0d8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.products-page .products .product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
 }
 
 .products-page .products .product-card .product-img {
   position: relative;
-  width: 273px;
-  height: 275px;
+  width: 100%;
+  height: 270px;
   background-size: cover;
+  background-position: center;
   background-color: #efe8dc;
-  border-radius: 0px 50px 0px 0px;
+  border-radius: 0;
 }
 
 @media (max-width: 768px) {
@@ -263,34 +275,41 @@
 }
 
 .products-page .products .product-card .product-desc {
-  width: 90%;
+  width: 100%;
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
 }
 
 .products-page .products .product-desc .product-title {
-  margin-top: 10px;
+  margin: 0;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 21px;
+  color: #08090d;
 }
 
 .products-page .products .product-desc .product-desc {
-  margin-top: 2px;
+  margin-top: 6px;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
-  color: #e3c08d;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #d4af37;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  gap: 4px;
+}
+
+.products-page .products .product-desc .product-desc svg {
+  font-size: 18px;
 }
 
 .products-page .products .product-img:before {
@@ -671,6 +690,16 @@
   min-height: 00px;
   display: flex;
   flex-direction: row;
+}
+
+@media (max-width: 899px) {
+  .products-page .products .list-category-section {
+    flex-direction: column;
+  }
+
+  .products-page .products .list-category-section .mobile-filter-toggle-btn {
+    width: 100%;
+  }
 }
 
 .products-page .products .list-category-section .product-column {
