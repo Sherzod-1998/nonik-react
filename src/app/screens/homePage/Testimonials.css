@@ -44,6 +44,7 @@
 
 .homepage .testimonials-frame .testimonial-card {
   position: relative;
+  box-sizing: border-box;
   height: auto;
   min-height: 260px;
   display: flex;
