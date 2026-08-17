@@ -795,13 +795,71 @@ p {
 }
 
 .products-page .chosen-product .recommend-container .category-title{
- font-family: "Dancing Script";
+  font-family: 'Playfair Display', serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 43px;
   text-align: center;
-  
+  margin: 60px 0 30px;
+}
+
+.products-page .chosen-product .recommend-container {
+  padding-bottom: 60px;
+}
+
+.products-page .chosen-product .recommend-container .product-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.products-page .chosen-product .recommend-container .product-card {
+  margin: 0 12px 24px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.products-page .chosen-product .recommend-container .product-card .product-img {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.products-page .chosen-product .recommend-container .product-card:hover .product-img {
+  transform: translateY(-4px);
+}
+
+.products-page .chosen-product .recommend-container .product-card .product-desc {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-page .chosen-product .recommend-container .product-card .product-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #08090d;
+}
+
+.products-page .chosen-product .recommend-container .product-card .product-desc div {
+  margin-top: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #d4af37;
 }
 
 .products-page .chosen-product .chosen-product-slider {

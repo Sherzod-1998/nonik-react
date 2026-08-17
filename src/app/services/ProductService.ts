@@ -76,6 +76,12 @@ class ProductService {
 
     return result.data;
   }
+
+  public async getRecommendedProducts(productId: string): Promise<Product[]> {
+    const result = await axiosInstance.get(`/product/recommend/${productId}`);
+
+    return result.data;
+  }
 }
 
 export default ProductService;
