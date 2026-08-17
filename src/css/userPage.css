@@ -491,3 +491,61 @@
 	font-size: 20px;
 	color: #a1a1a1;
 }
+
+@media (max-width: 900px) {
+	.user-page .my-page-frame {
+		flex-direction: column;
+		padding: 30px 16px;
+	}
+
+	.my-page-frame .my-page-left {
+		width: 100%;
+	}
+
+	.my-page-frame .my-page-right {
+		width: 100%;
+		margin-left: 0;
+		margin-top: 30px;
+	}
+
+	.user-page .my-page-wishlist {
+		padding: 0 16px 30px 16px;
+	}
+}
+
+@media (max-width: 480px) {
+	.my-page-left .menu-name {
+		height: 55px;
+		font-size: 30px;
+	}
+
+	.user-page .settings .input-frame {
+		flex-direction: column;
+	}
+
+	.user-page .settings .short-input {
+		width: 100%;
+	}
+
+	.user-page .settings .member-media-frame {
+		flex-direction: column;
+	}
+
+	.user-page .settings .media_change-box {
+		margin-left: 0;
+		margin-top: 15px;
+	}
+
+	.user-page .order-info-box .settings-btn {
+		right: 8%;
+	}
+
+	.user-page .my-page-wishlist .menu-name {
+		height: 55px;
+		font-size: 30px;
+	}
+
+	.user-page .my-page-wishlist .wishlist-card {
+		width: calc(50% - 10px);
+	}
+}

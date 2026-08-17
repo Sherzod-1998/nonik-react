@@ -206,3 +206,50 @@
   line-height: 26px;
   color: #6b625a;
 }
+
+@media (max-width: 900px) {
+  .help-page .help-container {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .help-page .css-1gsv261 {
+    width: 100%;
+  }
+
+  .help-page .help-main-content {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-page .order-page-title {
+    height: 50px;
+    font-size: 28px;
+  }
+
+  .help-page .help-menu {
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .help-page .rules-box {
+    padding: 16px;
+  }
+
+  .help-page .admin-letter-box {
+    padding: 24px;
+  }
+
+  .help-page .admin-letter-frame span {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .help-page .admin-letter-frame .admin-input-box input,
+  .help-page .admin-letter-frame .admin-input-box textarea {
+    padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -366,4 +366,100 @@
     line-height: 36px;
     color: #000000;
   }
-  
+
+  @media (max-width: 900px) {
+    .order-page .order-container {
+      flex-direction: column;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+
+    .order-page .order-left {
+      width: 100%;
+    }
+
+    .order-page .order-main-content {
+      width: 100%;
+    }
+
+    .order-page .order-right {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    .order-page .order-right .order-info-box {
+      width: 100%;
+    }
+
+    .order-page .css-1gsv261 {
+      width: 100%;
+    }
+
+    .order-page .order-box-scroll .orders-name-price {
+      height: auto;
+      margin-left: 20px;
+      flex-wrap: wrap;
+    }
+
+    .order-page .order-box-scroll .orders-name-price .title-dish {
+      width: auto;
+      max-width: 55%;
+    }
+
+    .order-page .order-box-scroll .orders-name-price .price-box {
+      max-width: none;
+      width: 100%;
+      margin-left: 0;
+      margin-top: 5px;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .order-page .order-container {
+      padding: 0 12px;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    .order-page .order-page-title {
+      height: 50px;
+      font-size: 28px;
+    }
+
+    .order-page .order-left .order-nav-frame {
+      height: auto;
+      padding: 8px 0;
+    }
+
+    .order-page .order-info-box .order-user-name {
+      font-size: 22px;
+    }
+
+    .order-page .order-info-box .payment-method-title {
+      font-size: 18px;
+    }
+
+    .order-page .order-info-box .cards-box {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .order-page .order-box-scroll .orders-name-price {
+      margin-left: 10px;
+    }
+
+    .order-page .order-box-scroll .orders-name-price .title-dish {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 50%;
+    }
+
+    .order-page .order-box-scroll .orders-name-price .price-box p {
+      font-size: 15px;
+    }
+  }
