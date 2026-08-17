@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import { Box, Container, Stack } from "@mui/material";
-import { CssVarsProvider } from "@mui/joy/styles";
-import IconButton from "@mui/joy/IconButton";
-import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
-import Typography from "@mui/joy/Typography";
-import CardCover from "@mui/joy/CardCover";
+import { Box, Container, IconButton, Stack } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { CardOverflow } from "@mui/joy";
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
@@ -60,8 +52,17 @@ export default function PopularDishes() {
               popularDishes.map((product: Product) => {
                 const imagePath = `${serverApi}/${product.productImages[0]}`;
                 return (
-                  <CssVarsProvider key={product._id}>
-                    <Card className="card">
+                  <Stack key={product._id} className="product-tile">
+                    <Box className="product-tile-media">
+                      <img
+                        src={imagePath}
+                        alt={product.productName}
+                        onError={(e) => {
+                          if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                            e.currentTarget.src = "/icons/noimage-list.svg";
+                          }
+                        }}
+                      />
                       <IconButton
                         className="favorite-btn"
                         onClick={(e) => likeHandler(e, product._id)}
@@ -72,62 +73,18 @@ export default function PopularDishes() {
                           <FavoriteBorderIcon sx={{ color: "#fff" }} />
                         )}
                       </IconButton>
-                      <CardCover>
-                        <img
-                          src={imagePath}
-                          alt=""
-                          onError={(e) => {
-                            if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
-                              e.currentTarget.src = "/icons/noimage-list.svg";
-                            }
-                          }}
-                        />
-                      </CardCover>
-                      <CardCover className={"card-cover"} />
-                      <CardContent sx={{ justifyContent: "flex-end" }}>
-                        <Stack flexDirection="row" justifyContent="space-between">
-                          <Typography
-                            level="h2"
-                            fontSize="lg"
-                            textColor="#fff"
-                            mb={1}
-                          >
-                            {product.productName}
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontWeight: "md",
-                              color: "neutral.300",
-                              alignItems: "center",
-                              display: "flex",
-                            }}
-                          >
-                            {product.productView}
-                            <VisibilityIcon
-                              sx={{ fontSize: 25, marginLeft: "5px" }}
-                            />
-                          </Typography>
-                        </Stack>
-                      </CardContent>
-                      <CardOverflow
-                        sx={{
-                          display: "flex",
-                          gap: 1.5,
-                          py: 1.5,
-                          px: "var(--Card-padding)",
-                          borderTop: "1px solid",
-                          height: "60px",
-                        }}
-                      >
-                        <Typography
-                          startDecorator={<DescriptionOutlinedIcon />}
-                          textColor="neutral.300"
-                        >
-                          {product.productDesc}
-                        </Typography>
-                      </CardOverflow>
-                    </Card>
-                  </CssVarsProvider>
+                    </Box>
+                    <Box className="product-tile-body">
+                      <p className="product-tile-name">{product.productName}</p>
+                      <Box className="product-tile-footer">
+                        <span className="product-tile-price">${product.productPrice}</span>
+                        <span className="product-tile-views">
+                          <VisibilityIcon sx={{ fontSize: 16 }} />
+                          {product.productView}
+                        </span>
+                      </Box>
+                    </Box>
+                  </Stack>
                 );
               })
             ) : (

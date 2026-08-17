@@ -48,11 +48,103 @@
     color: #eecd39;
 }
 
+/** SHARED PRODUCT TILE (used by Top Products + Hot Arrivals) **/
+
+.product-tile {
+  min-width: 270px;
+  width: 270px;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #e7e0d8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+}
+
+.product-tile .product-tile-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #efe8dc;
+  overflow: hidden;
+}
+
+.product-tile .product-tile-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-tile .favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  padding: 5px;
+  min-width: 36px;
+  width: 36px;
+  height: 36px;
+  background: rgba(11, 11, 12, 0.5);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.product-tile .favorite-btn:hover {
+  background: rgba(11, 11, 12, 0.7);
+}
+
+.product-tile .product-tile-body {
+  padding: 14px 16px 16px;
+}
+
+.product-tile .product-tile-name {
+  margin: 0 0 6px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 21px;
+  color: #08090d;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-tile .product-tile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-tile .product-tile-price {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #d4af37;
+}
+
+.product-tile .product-tile-views {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #6b625a;
+}
+
 /** POPULAR DISHES **/
 
 .homepage .popular-dishes-frame {
     width: 100%;
-    height: 580px;
+    height: auto;
+    padding-bottom: 60px;
     display: flex;
     background: #f8f4ee;
 
@@ -80,55 +172,9 @@
     margin-top: 43px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    
-}
-
-.homepage .popular-dishes-frame .cards-frame .card {
-  min-height: 430px;
-  min-width: 300px;
-  cursor: pointer;
-  background-color: #d4a373;
-  transition: all 0.4s ease;
-  border-radius: 0%; /* Dastlab to‘rtburchak */
-  cursor: pointer;
-  overflow: hidden;
-  margin: 47px 2px 2px 2px;
-}
-.homepage .popular-dishes-frame .cards-frame .card:hover {
-  border-radius: 20%; /* Hover qilganda aylana */
-}
-
-
-
-.homepage .popular-dishes-frame .cards-frame .card .favorite-btn,
-.homepage .new-products-frame .main .card .favorite-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
-  padding: 5px;
-  min-width: 36px;
-  width: 36px;
-  height: 36px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 50%;
-  transition: background 0.3s ease;
-}
-
-.homepage .popular-dishes-frame .cards-frame .card .favorite-btn:hover,
-.homepage .new-products-frame .main .card .favorite-btn:hover {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.homepage .popular-dishes-frame .cards-frame .card .card-cover {
-  background: linear-gradient(
-      to top, 
-      rgba(0, 0, 0, 0.4), 
-      rgba(0, 0, 0, 0) 200px
-    ), 
-    linear-gradient(to top,  rgba(0, 0, 0, 0.8),  rgba(0, 0, 0, 0) 300px
-    );
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
 }
 
 .homepage .popular-dishes-frame .no-data {
@@ -150,7 +196,8 @@
 
 .homepage .new-products-frame {
     width: 100%;
-    height: 605px;
+    height: auto;
+    padding-bottom: 60px;
     background: #f8f4ee;
     display: flex;
 }
@@ -161,7 +208,7 @@
     flex-direction: column;
     align-items: center;
 }
-  
+
 .homepage .new-products-frame .category-title {
     font-family: 'Playfair Display', serif;
     font-style: normal;
@@ -172,77 +219,12 @@
 
 .homepage .new-products-frame .main .cards-frame {
     width: 100%;
-    margin: 47px 2px 2px 2px;
+    margin-top: 43px;
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-}
-
-.homepage .new-products-frame .main .card {
-  height: 335px;
-  width: 290px;
-  cursor: pointer;
-}
-
-.homepage .new-products-frame .product-sale {
-  position: absolute;
-  margin-top: 10px;
-  z-index: 100;
-  width: 90px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ff9200;
-  box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 21px;
-  color: #f8f8ff;
-}
-
-.homepage .new-products-frame .product-detail {
-  width: auto;
-  height: 49%;
-  display: flex;
-  justify-content: center;
-  margin-top: -12px;
-  border-top: 1px solid; 
-  border-color:  #f8f8ff;
-  background-color: #f8f4ee;
-}
-
-.homepage .new-products-frame .product-detail .info {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homepage .new-products-frame .product-detail .title {
-  width: 65px;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .product-detail .price {
-  margin-left: 10px;
-  width: 20px;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .product-detail .divider {
-  margin: 0 10px;
-  width: 2px;
-  background-color: #d9d9d9;
-}
-
-.homepage .new-products-frame .product-detail .views {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
 }
 
 .homepage .new-products-frame .no-data {
@@ -600,12 +582,11 @@ text-align: left;
     display: none;
   }
 
-  .homepage .popular-dishes-frame .cards-frame .card {
+  .homepage .popular-dishes-frame .cards-frame .product-tile {
     flex: 0 0 auto;
     scroll-snap-align: start;
     min-width: 78vw;
     width: 78vw;
-    min-height: 320px;
     margin: 0;
   }
 
@@ -633,7 +614,7 @@ text-align: left;
     display: none;
   }
 
-  .homepage .new-products-frame .main .card,
+  .homepage .new-products-frame .main .product-tile,
   .homepage .active-users-frame .main .card {
     flex: 0 0 auto;
     scroll-snap-align: start;
@@ -676,12 +657,12 @@ text-align: left;
     font-size: 26px;
   }
 
-  .homepage .popular-dishes-frame .cards-frame .card {
+  .homepage .popular-dishes-frame .cards-frame .product-tile {
     min-width: 84vw;
     width: 84vw;
   }
 
-  .homepage .new-products-frame .main .card,
+  .homepage .new-products-frame .main .product-tile,
   .homepage .active-users-frame .main .card {
     width: 74vw;
   }

@@ -1,21 +1,13 @@
 import React, { useState } from "react";
-import { Box, Container, Stack } from "@mui/material";
-import AspectRatio from "@mui/joy/AspectRatio";
-import Card from "@mui/joy/Card";
-import IconButton from "@mui/joy/IconButton";
-import CardOverflow from "@mui/joy/CardOverflow";
-import Typography from "@mui/joy/Typography";
-import { CssVarsProvider } from "@mui/joy/styles";
+import { Box, Container, IconButton, Stack } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Divider from "../../components/divider"; //
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrieveNewDishes, retrievePopularDishes } from "./selector";
+import { retrieveNewDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
-import { ProductCollection } from "../../../lib/enums/product.enum";
 import { useGlobals } from "../../hooks/useGlobals";
 import FavoriteService from "../../services/FavoriteService";
 
@@ -55,13 +47,21 @@ export default function NewDishes() {
         <Stack className={"main"}>
           <Box className={"category-title"}>Hot Arrivals</Box>
           <Stack className={"cards-frame"}>
-            <CssVarsProvider>
-              {newDishes.length !== 0 ? (
-                newDishes.map((product:Product) => {
-                  const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  return (
-                    <Card
-                    key={product._id} variant="outlined" className={"card"}>
+            {newDishes.length !== 0 ? (
+              newDishes.map((product: Product) => {
+                const imagePath = `${serverApi}/${product.productImages[0]}`;
+                return (
+                  <Stack key={product._id} className="product-tile">
+                    <Box className="product-tile-media">
+                      <img
+                        src={imagePath}
+                        alt={product.productName}
+                        onError={(e) => {
+                          if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                            e.currentTarget.src = "/icons/noimage-list.svg";
+                          }
+                        }}
+                      />
                       <IconButton
                         className="favorite-btn"
                         onClick={(e) => likeHandler(e, product._id)}
@@ -72,46 +72,23 @@ export default function NewDishes() {
                           <FavoriteBorderIcon sx={{ color: "#fff" }} />
                         )}
                       </IconButton>
-                      <CardOverflow>
-                        <AspectRatio ratio="1">
-                          <img
-                            src={imagePath}
-                            alt=""
-                            onError={(e) => {
-                              if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
-                                e.currentTarget.src = "/icons/noimage-list.svg";
-                              }
-                            }}
-                          />
-                        </AspectRatio>
-                      </CardOverflow>
-
-                      <CardOverflow variant="soft" className="product-detail">
-                        <Stack className="info">
-                          <Stack flexDirection="row">
-                            <Typography className={"title"}>
-                              {product.productName}
-                            </Typography>
-                            <Divider width="2" height="24" bg="#d9d9d9" />
-                            <Typography className={"price"}>${product.productPrice}</Typography>
-                          </Stack>
-                          <Stack>
-                            <Typography className={"views"}>
-                              {product.productView}
-                              <VisibilityIcon
-                                sx={{ fontSize: 20, marginLeft: "5px" }}
-                              />
-                            </Typography>
-                          </Stack>
-                        </Stack>
-                      </CardOverflow>
-                    </Card>
-                  );
-                })
-              ) : (
-                <Box className="no-data">New products are not available!</Box>
-              )}
-            </CssVarsProvider>
+                    </Box>
+                    <Box className="product-tile-body">
+                      <p className="product-tile-name">{product.productName}</p>
+                      <Box className="product-tile-footer">
+                        <span className="product-tile-price">${product.productPrice}</span>
+                        <span className="product-tile-views">
+                          <VisibilityIcon sx={{ fontSize: 16 }} />
+                          {product.productView}
+                        </span>
+                      </Box>
+                    </Box>
+                  </Stack>
+                );
+              })
+            ) : (
+              <Box className="no-data">New products are not available!</Box>
+            )}
           </Stack>
         </Stack>
       </Container>
