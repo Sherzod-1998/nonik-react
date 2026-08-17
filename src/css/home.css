@@ -54,12 +54,12 @@
     width: 100%;
     height: 580px;
     display: flex;
-    background: #ececfe;
-    
+    background: #f8f4ee;
+
 }
 
 .homepage .popular-dishes-frame .popular-section {
-    margin-top: 45px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -151,12 +151,12 @@
 .homepage .new-products-frame {
     width: 100%;
     height: 605px;
-    background: #ececfe;
+    background: #f8f4ee;
     display: flex;
 }
-  
+
 .homepage .main {
-    margin-top: 45px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,7 +211,7 @@
   margin-top: -12px;
   border-top: 1px solid; 
   border-color:  #f8f8ff;
-  background-color: #fafbfb;
+  background-color: #f8f4ee;
 }
 
 .homepage .new-products-frame .product-detail .info {
@@ -285,12 +285,12 @@
 .homepage .active-users-frame {
   width: 100%;
   height: 605px;
-  background: #ececfe;
+  background: #f8f4ee;
   display: flex;
 }
 
 .homepage .main {
-  margin-top: 45px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -325,7 +325,7 @@
   margin-top: -12px;
   border-top: 1px solid; 
   border-color:  #f8f8ff;
-  background-color: #fafbfb;
+  background-color: #f8f4ee;
 }
 
 .homepage .active-users-frame .user-detail .info{
@@ -359,7 +359,8 @@
 .homepage .events-frame {
   width: 100%;
   height: 745px;
-  background: #ececfe;
+  padding-top: 60px;
+  background: #f8f4ee;
   display: flex;
 }
 

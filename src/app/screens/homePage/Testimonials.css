@@ -4,7 +4,7 @@
   width: 100%;
   height: auto;
   padding: 60px 0;
-  background: #ececfe;
+  background: #f8f4ee;
   display: flex;
 }
 
@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   padding: 30px 24px 24px 24px;
-  background: #f8f8ff;
+  background: #f8f4ee;
   border-radius: 16px;
   box-shadow: 0px 10px 30px rgba(25, 25, 46, 0.08);
   transition: transform 0.3s ease;
@@ -63,7 +63,7 @@
   font-family: "Playfair Display", serif;
   font-size: 48px;
   line-height: 30px;
-  color: #d9d3ff;
+  color: #d7b686;
   margin-bottom: 10px;
 }
 
@@ -85,7 +85,7 @@
 
 .homepage .testimonials-frame .star-icon {
   font-size: 20px;
-  color: #d9d3ff;
+  color: #d7b686;
 }
 
 .homepage .testimonials-frame .star-icon.filled {
@@ -105,7 +105,7 @@
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
-  background: #ececfe;
+  background: #f8f4ee;
 }
 
 .homepage .testimonials-frame .testimonial-name {
@@ -137,7 +137,7 @@
   height: 8px;
   text-align: center;
   opacity: 1;
-  background: #d9d3ff;
+  background: #d7b686;
   border-radius: 50%;
 }
 
