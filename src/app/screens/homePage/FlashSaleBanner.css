@@ -1,0 +1,138 @@
+/* FLASH SALE BANNER */
+
+.homepage .flash-sale-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+  background: var(--nonik-bg, #0b0b0c);
+  box-shadow: inset 0 1px 0 rgba(215, 182, 134, 0.15), inset 0 -1px 0 rgba(215, 182, 134, 0.15);
+}
+
+.homepage .flash-sale-frame .flash-sale-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.homepage .flash-sale-frame .flash-sale-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--nonik-gold, #d4af37);
+}
+
+.homepage .flash-sale-frame .flash-sale-title {
+  margin-top: 16px;
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 44px;
+  color: var(--nonik-text, #f3ede3);
+}
+
+.homepage .flash-sale-frame .flash-sale-title .gold-text {
+  background: linear-gradient(135deg, #d4af37, #f0d9a8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.homepage .flash-sale-frame .flash-sale-subtext {
+  margin-top: 12px;
+  max-width: 560px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--nonik-text-muted, #b3a796);
+}
+
+.homepage .flash-sale-frame .flash-sale-countdown {
+  margin-top: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.homepage .flash-sale-frame .flash-sale-digit-box {
+  width: 84px;
+  height: 84px;
+  align-items: center;
+  justify-content: center;
+  background: var(--nonik-surface, #141416);
+  border: 1px solid var(--nonik-gold, #d4af37);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.homepage .flash-sale-frame .flash-sale-digit-value {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--nonik-gold, #d4af37);
+}
+
+.homepage .flash-sale-frame .flash-sale-digit-label {
+  margin-top: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--nonik-text-muted, #b3a796);
+}
+
+.homepage .flash-sale-frame .flash-sale-colon {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  color: var(--nonik-accent, #d7b686);
+}
+
+.homepage .flash-sale-frame .flash-sale-cta {
+  margin-top: 40px;
+  padding: 14px 40px;
+  border-radius: 4px;
+  text-transform: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #0b0b0c;
+  background: linear-gradient(135deg, #d7b686, #d4af37);
+  transition: background 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.homepage .flash-sale-frame .flash-sale-cta:hover {
+  background: linear-gradient(135deg, #e8c99a, #d4af37);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 768px) {
+  .homepage .flash-sale-frame .flash-sale-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .homepage .flash-sale-frame .flash-sale-countdown {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .homepage .flash-sale-frame .flash-sale-digit-box {
+    width: 68px;
+    height: 68px;
+  }
+
+  .homepage .flash-sale-frame .flash-sale-digit-value {
+    font-size: 24px;
+  }
+
+  .homepage .flash-sale-frame .flash-sale-colon {
+    font-size: 24px;
+  }
+}
