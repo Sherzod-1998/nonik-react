@@ -28,6 +28,10 @@ export function Settings() {
     }
   );
 
+  const [currentPassword, setCurrentPassword] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState<string>("");
+
   const memberNickHandler = (e: T) => {
     memberUpdateInput.memberNick = e.target.value;
     setMemberUpdateInput({ ...memberUpdateInput });
@@ -64,6 +68,34 @@ export function Settings() {
       setAuthMember(result);
 
       await sweetTopSmallSuccessAlert("Modified successfully!", 700);
+    } catch (err) {
+      console.error(err);
+      sweetErrorHandling(err).then();
+    }
+  };
+
+  const handleChangePasswordButton = async () => {
+    try {
+      if (!authMember) throw new Error(Messages.error2);
+      if (
+        !currentPassword ||
+        !newPassword ||
+        !confirmNewPassword
+      ) {
+        throw new Error(Messages.error3);
+      }
+      if (newPassword !== confirmNewPassword) {
+        throw new Error("New password and confirm password do not match!");
+      }
+
+      const member = new MemberService();
+      await member.changePassword(currentPassword, newPassword);
+
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmNewPassword("");
+
+      await sweetTopSmallSuccessAlert("Password changed successfully!", 700);
     } catch (err) {
       console.error(err);
       sweetErrorHandling(err).then();
@@ -159,6 +191,49 @@ export function Settings() {
         <Button variant={"contained"} onClick={handleSubmitButton}>
           Save
         </Button>
+      </Box>
+
+      <Box className={"change-password-frame"}>
+        <div className={"long-input"}>
+          <label className={"spec-label"}>Current password</label>
+          <input
+            className={"spec-input mb-current-password"}
+            type="password"
+            placeholder="Current password"
+            value={currentPassword}
+            name="currentPassword"
+            onChange={(e: T) => setCurrentPassword(e.target.value)}
+          />
+        </div>
+        <Box className={"input-frame"}>
+          <div className={"short-input"}>
+            <label className={"spec-label"}>New password</label>
+            <input
+              className={"spec-input mb-new-password"}
+              type="password"
+              placeholder="New password"
+              value={newPassword}
+              name="newPassword"
+              onChange={(e: T) => setNewPassword(e.target.value)}
+            />
+          </div>
+          <div className={"short-input"}>
+            <label className={"spec-label"}>Confirm new password</label>
+            <input
+              className={"spec-input mb-confirm-new-password"}
+              type="password"
+              placeholder="Confirm new password"
+              value={confirmNewPassword}
+              name="confirmNewPassword"
+              onChange={(e: T) => setConfirmNewPassword(e.target.value)}
+            />
+          </div>
+        </Box>
+        <Box className={"save-box"}>
+          <Button variant={"contained"} onClick={handleChangePasswordButton}>
+            Change Password
+          </Button>
+        </Box>
       </Box>
     </Box>
   );

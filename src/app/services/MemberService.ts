@@ -73,6 +73,17 @@ class MemberService {
     const member: Member = result.data;
     return member;
   }
+
+  public async changePassword(
+    currentPassword: string,
+    newPassword: string
+  ): Promise<void> {
+    await axiosInstance.post(
+      "/member/change-password",
+      { currentPassword, newPassword },
+      { withCredentials: true }
+    );
+  }
 }
 
 export default MemberService;
