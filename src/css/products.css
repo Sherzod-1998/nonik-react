@@ -292,7 +292,7 @@
   z-index: 3;
   opacity: 0;
   transition: opacity 0.5s ease;
-  background: rgb(198 0 255 / 66%);
+  background: rgba(11, 11, 12, 0.75);
   border: 2px solid #d7b686;
   border-radius: 10px;
   font-family: "Poppins";

@@ -255,7 +255,7 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 25px;
-	color: #f8f8ff;
+	color: #08090d;
 }
 
 .user-page .settings .spec-input {
@@ -374,7 +374,7 @@
 	height: auto;
 	display: flex;
 	flex-direction: column;
-	border-top: 1px solid #f8f8ff;
+	border-top: 1px solid #e7e0d8;
 }
 
 .user-page .my-page-wishlist {
@@ -390,12 +390,12 @@
 	height: 70px;
 	display: flex;
 	justify-content: center;
-	border-bottom: 1px solid #f8f8ff;
+	border-bottom: 1px solid #e7e0d8;
 	font-family: 'Poppins';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 45px;
-	color: #f8f8ff;
+	color: #08090d;
 }
 
 .user-page .my-page-wishlist .wishlist-cards-frame {
