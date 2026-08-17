@@ -74,7 +74,15 @@ export default function NewDishes() {
                       </IconButton>
                       <CardOverflow>
                         <AspectRatio ratio="1">
-                          <img src={imagePath} alt='' />
+                          <img
+                            src={imagePath}
+                            alt=""
+                            onError={(e) => {
+                              if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                                e.currentTarget.src = "/icons/noimage-list.svg";
+                              }
+                            }}
+                          />
                         </AspectRatio>
                       </CardOverflow>
 

@@ -93,7 +93,15 @@ export default function ChosenProduct(props: ChosenProductProps) {
               const imagePath = `${serverApi}/${ele}`;
               return (
                 <SwiperSlide key={index}>
-                  <img className="slider-image" src={imagePath} />
+                  <img
+                    className="slider-image"
+                    src={imagePath}
+                    onError={(e) => {
+                      if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                        e.currentTarget.src = "/icons/noimage-list.svg";
+                      }
+                    }}
+                  />
                 </SwiperSlide>
               );
             })}

@@ -31,7 +31,15 @@ export default function FinishedOrders() {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
                     <Box key={item._id} className={"orders-name-price"}>
-                      <img src={imagePath} className={"order-dish-img"} />
+                      <img
+                        src={imagePath}
+                        className={"order-dish-img"}
+                        onError={(e) => {
+                          if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                            e.currentTarget.src = "/icons/noimage-list.svg";
+                          }
+                        }}
+                      />
                       <p className={"title-dish"}>{product.productName}</p>
                       <Box className={"price-box"}>
                         <p>${item.itemPrice}</p>

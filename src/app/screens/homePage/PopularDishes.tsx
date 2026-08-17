@@ -73,7 +73,15 @@ export default function PopularDishes() {
                         )}
                       </IconButton>
                       <CardCover>
-                        <img src={imagePath} alt="" />
+                        <img
+                          src={imagePath}
+                          alt=""
+                          onError={(e) => {
+                            if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                              e.currentTarget.src = "/icons/noimage-list.svg";
+                            }
+                          }}
+                        />
                       </CardCover>
                       <CardCover className={"card-cover"} />
                       <CardContent sx={{ justifyContent: "flex-end" }}>

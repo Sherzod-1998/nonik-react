@@ -199,6 +199,7 @@
   width: 273px;
   height: 275px;
   background-size: cover;
+  background-color: #efe8dc;
   border-radius: 0px 50px 0px 0px;
 }
 
@@ -830,6 +831,7 @@ p {
   height: 220px;
   background-size: cover;
   background-position: center;
+  background-color: #efe8dc;
   border-radius: 12px;
   transition: transform 0.3s ease;
 }

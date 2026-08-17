@@ -129,6 +129,11 @@ export default function UserPage() {
                       src={imagePath}
                       alt={product.productName}
                       className={"wishlist-card-img"}
+                      onError={(e) => {
+                        if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
+                          e.currentTarget.src = "/icons/noimage-list.svg";
+                        }
+                      }}
                     />
                     <span className={"wishlist-card-name"}>
                       {product.productName}
