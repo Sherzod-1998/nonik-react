@@ -52,7 +52,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
         setOrderBuilder(new Date());
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       sweetErrorHandling(err).then();
     }
   };

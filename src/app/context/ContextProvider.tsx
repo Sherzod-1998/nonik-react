@@ -14,7 +14,6 @@ const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   );
 
   const [orderBuilder, setOrderBuilder] = useState<Date>(new Date());
-  console.log("=== verify ===");
 
   return (
     <GlobalContext.Provider

@@ -44,17 +44,17 @@ export default function OrdersPage() {
     order
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PAUSE })
       .then((data) => setPausedOrders(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
     order
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.PROCESS })
       .then((data) => setProcessOrders(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
     order
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
       .then((data) => setFinishedOrders(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, [orderInquiry, orderBuilder]);
 
   /* Handlers */

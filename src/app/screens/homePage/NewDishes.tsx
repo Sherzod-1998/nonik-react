@@ -23,8 +23,7 @@ const newDishesRetriever = createSelector(
 export default function NewDishes() {
 
   const {newDishes} = useSelector(newDishesRetriever);
-  
-    console.log("popularDishes",newDishes);
+
   return (
     <div className={"new-products-frame"}>
       <Container>

@@ -109,13 +109,13 @@ export default function ChosenProduct(props: ChosenProductProps) {
     product
       .getProduct(productId)
       .then((data) => setChosenProduct(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
     const member = new MemberService();
     member
       .getSeller()
       .then((data) => setSeller(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, []);
 
   if (!chosenProduct) return null;

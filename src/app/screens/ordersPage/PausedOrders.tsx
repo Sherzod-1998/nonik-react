@@ -48,7 +48,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
         setOrderBuilder(new Date());
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       sweetErrorHandling(err).then();
     }
   };
@@ -74,7 +74,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
         setOrderBuilder(new Date());
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       sweetErrorHandling(err).then();
     }
   };

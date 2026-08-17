@@ -49,7 +49,7 @@ function App() {
       await sweetTopSuccessAlert("success", 700);
       setAuthMember(null);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       sweetErrorHandling(Messages.error1);
     }
   };

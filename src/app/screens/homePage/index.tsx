@@ -36,10 +36,9 @@ export default function HomePage() {
         productCollection: [],
       })
       .then((data) => {
-        console.log("dataaaaaaaaaaaaaaaaaaaaaaaaaa",data)
         setPopularDishes(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
       product
       .getProducts({
@@ -51,12 +50,12 @@ export default function HomePage() {
       .then((data) => {
         setNewDishes(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
 
       const member = new MemberService();
       member.getTopUsers()
       .then((data) => setTopUsers(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, []);
 
   return (

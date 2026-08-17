@@ -49,7 +49,7 @@ export default function Products(props: ProductsProps) {
     product
       .getProducts(productSearch)
       .then((data) => setProducts(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, [productSearch]);
 
   useEffect(() => {

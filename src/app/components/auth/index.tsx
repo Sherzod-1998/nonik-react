@@ -74,7 +74,6 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
 
   const handleSignupRequest = async () => {
     try {
-      console.log("inputs:", memberNick, memberPhone, memberPassword);
       const isFulfill =
         memberNick !== "" && memberPhone !== "" && memberPassword !== "";
       if (!isFulfill) throw new Error(Messages.error3);
@@ -92,7 +91,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       setAuthMember(result);
       handleSignupClose();
     } catch (err) {
-      console.log(err);
+      console.error(err);
       handleSignupClose();
       sweetErrorHandling(err).then();
     }
@@ -115,7 +114,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
       setAuthMember(result);
       handleLoginClose();
     } catch (err) {
-      console.log(err);
+      console.error(err);
       handleLoginClose();
       sweetErrorHandling(err).then();
     }

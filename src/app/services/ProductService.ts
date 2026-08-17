@@ -30,11 +30,10 @@ class ProductService {
     const url = `${this.path}/product/all?${params.toString()}`;
 
     const result = await axios.get(url);
-    console.log("getProducts:", input);
 
     return result.data;
   } catch (err) {
-    console.log("Errors, getProducts:", err);
+    console.error("Errors, getProducts:", err);
     throw err;
   }
 }
@@ -47,7 +46,7 @@ class ProductService {
 
       return result.data;
     } catch (err) {
-      console.log("Erros, getProduct:", err);
+      console.error("Erros, getProduct:", err);
       throw err;
     }
   }

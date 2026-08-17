@@ -48,12 +48,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
   const [value, setvalue] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log("componentDidMount"); // DATA FETCH
     setCount(count + 1);
-
-    return () => {
-      console.log("componentWillUnmount");
-    };
   }, [value]);
 
   /* HANDLERS */

@@ -21,7 +21,7 @@ class MemberService {
 
       return result.data;
     } catch (err) {
-      console.log("Erros, getTopUsers:", err);
+      console.error("Erros, getTopUsers:", err);
       throw err;
     }
   }
@@ -34,7 +34,7 @@ class MemberService {
       const seller = result.data;
       return seller;
     } catch (err) {
-      console.log("Erros, getSeller:", err);
+      console.error("Erros, getSeller:", err);
       throw err;
     }
   }
@@ -43,15 +43,13 @@ class MemberService {
     try {
       const url = this.path + "/member/signup";
       const result = await axios.post(url, input, { withCredentials: true });
-      console.log("signup:", result);
 
       const member: Member = result.data.member;
-      console.log("member:", member);
       localStorage.setItem("memberData", JSON.stringify(member));
 
       return member;
     } catch (err) {
-      console.log("Error, signup:", err);
+      console.error("Error, signup:", err);
       throw err;
     }
   }
@@ -60,15 +58,13 @@ class MemberService {
     try {
       const url = this.path + "/member/login";
       const result = await axios.post(url, input, { withCredentials: true });
-      console.log("login:", result);
 
       const member: Member = result.data.member;
-      console.log("member:", member);
       localStorage.setItem("memberData", JSON.stringify(member));
 
       return member;
     } catch (err) {
-      console.log("Error, login:", err);
+      console.error("Error, login:", err);
       throw err;
     }
   }
@@ -76,12 +72,11 @@ class MemberService {
   public async logout(): Promise<void> {
     try {
       const url = this.path + "/member/logout";
-      const result = await axios.post(url, {}, { withCredentials: true });
-      console.log("logout:", result);
+      await axios.post(url, {}, { withCredentials: true });
 
       localStorage.removeItem("memberData");
     } catch (err) {
-      console.log("Error, logout:", err);
+      console.error("Error, logout:", err);
       throw err;
     }
   }
@@ -103,13 +98,12 @@ class MemberService {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("updateMember:", result);
 
       const member: Member = result.data;
       localStorage.setItem("memberData", JSON.stringify(member));
       return member;
     } catch (err) {
-      console.log("Error, updateMember:", err);
+      console.error("Error, updateMember:", err);
       throw err;
     }
   }

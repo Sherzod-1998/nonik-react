@@ -27,18 +27,11 @@ class Test extends Component<{}, State> {
     });
   };
 
-  componentDidMount() {
-    console.log("componentDidMount"); // runs after first render
-  }
-  
-  componentWillUnmount() {
-    console.log("componentWillUnmount"); // runs before component unmount
-  }
-  
-  componentDidUpdate() {
-    console.log("componentDidUpdate"); // runs after component updates
-  }
-  
+  componentDidMount() {}
+
+  componentWillUnmount() {}
+
+  componentDidUpdate() {}
 
   render() {
     return (
