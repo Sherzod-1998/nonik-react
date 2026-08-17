@@ -1,16 +1,8 @@
-import axios from "axios";
-import { serverApi } from "../../lib/config";
+import axiosInstance from "../api/axiosInstance";
 import { Product, ProductInquiry } from "../../lib/types/product";
 
 class ProductService {
-  private readonly path: string;
-
-  constructor() {
-    this.path = serverApi;
-  }
-
   public async getProducts(input: ProductInquiry): Promise<Product[]> {
-  try {
     const params = new URLSearchParams();
 
     params.append("order", input.order);
@@ -27,28 +19,19 @@ class ProductService {
       );
     }
 
-    const url = `${this.path}/product/all?${params.toString()}`;
-
-    const result = await axios.get(url);
+    const result = await axiosInstance.get(
+      `/product/all?${params.toString()}`
+    );
 
     return result.data;
-  } catch (err) {
-    console.error("Errors, getProducts:", err);
-    throw err;
   }
-}
-
 
   public async getProduct(productId: string): Promise<Product> {
-    try {
-      const url = `${this.path}/product/${productId}`;
-      const result = await axios.get(url, { withCredentials: true });
+    const result = await axiosInstance.get(`/product/${productId}`, {
+      withCredentials: true,
+    });
 
-      return result.data;
-    } catch (err) {
-      console.error("Erros, getProduct:", err);
-      throw err;
-    }
+    return result.data;
   }
 }
 

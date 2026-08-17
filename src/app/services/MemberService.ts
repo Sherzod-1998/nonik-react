@@ -1,5 +1,4 @@
-import axios from "axios";
-import { serverApi } from "../../lib/config";
+import axiosInstance from "../api/axiosInstance";
 import {
   LoginInput,
   Member,
@@ -8,104 +7,64 @@ import {
 } from "../../lib/types/member";
 
 class MemberService {
-  private readonly path: string;
-
-  constructor() {
-    this.path = serverApi;
-  }
-
   public async getTopUsers(): Promise<Member[]> {
-    try {
-      const url = this.path + "/member/top-users";
-      const result = await axios.get(url);
+    const result = await axiosInstance.get("/member/top-users");
 
-      return result.data;
-    } catch (err) {
-      console.error("Erros, getTopUsers:", err);
-      throw err;
-    }
+    return result.data;
   }
 
   public async getSeller(): Promise<Member> {
-    try {
-      const url = this.path + "/member/seller";
-      const result = await axios.get(url);
+    const result = await axiosInstance.get("/member/seller");
 
-      const seller = result.data;
-      return seller;
-    } catch (err) {
-      console.error("Erros, getSeller:", err);
-      throw err;
-    }
+    return result.data;
   }
 
   public async signup(input: MemberInput): Promise<Member> {
-    try {
-      const url = this.path + "/member/signup";
-      const result = await axios.post(url, input, { withCredentials: true });
+    const result = await axiosInstance.post("/member/signup", input, {
+      withCredentials: true,
+    });
 
-      const member: Member = result.data.member;
-      localStorage.setItem("memberData", JSON.stringify(member));
+    const member: Member = result.data.member;
+    localStorage.setItem("memberData", JSON.stringify(member));
 
-      return member;
-    } catch (err) {
-      console.error("Error, signup:", err);
-      throw err;
-    }
+    return member;
   }
 
   public async login(input: LoginInput): Promise<Member> {
-    try {
-      const url = this.path + "/member/login";
-      const result = await axios.post(url, input, { withCredentials: true });
+    const result = await axiosInstance.post("/member/login", input, {
+      withCredentials: true,
+    });
 
-      const member: Member = result.data.member;
-      localStorage.setItem("memberData", JSON.stringify(member));
+    const member: Member = result.data.member;
+    localStorage.setItem("memberData", JSON.stringify(member));
 
-      return member;
-    } catch (err) {
-      console.error("Error, login:", err);
-      throw err;
-    }
+    return member;
   }
 
   public async logout(): Promise<void> {
-    try {
-      const url = this.path + "/member/logout";
-      await axios.post(url, {}, { withCredentials: true });
+    await axiosInstance.post("/member/logout", {}, { withCredentials: true });
 
-      localStorage.removeItem("memberData");
-    } catch (err) {
-      console.error("Error, logout:", err);
-      throw err;
-    }
+    localStorage.removeItem("memberData");
   }
 
   public async updateMember(input: MemberUpdateInput): Promise<Member> {
-    try {
-      const formData = new FormData();
-      formData.append("memberNick", input.memberNick || "");
-      formData.append("memberPhone", input.memberPhone || "");
-      formData.append("memberAddress", input.memberAddress || "");
-      formData.append("memberDesc", input.memberDesc || "");
-      formData.append("memberImage", input.memberImage || "");
+    const formData = new FormData();
+    formData.append("memberNick", input.memberNick || "");
+    formData.append("memberPhone", input.memberPhone || "");
+    formData.append("memberAddress", input.memberAddress || "");
+    formData.append("memberDesc", input.memberDesc || "");
+    formData.append("memberImage", input.memberImage || "");
 
-      const result = await axios(`${serverApi}/member/update`, {
-        method: "POST",
-        data: formData,
-        withCredentials: true,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+    const result = await axiosInstance.post("/member/update", formData, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
-      const member: Member = result.data;
-      localStorage.setItem("memberData", JSON.stringify(member));
-      return member;
-    } catch (err) {
-      console.error("Error, updateMember:", err);
-      throw err;
-    }
+    const member: Member = result.data;
+    localStorage.setItem("memberData", JSON.stringify(member));
+    return member;
   }
 }
 
