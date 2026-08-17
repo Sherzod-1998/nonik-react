@@ -25,7 +25,6 @@ class MemberService {
     });
 
     const member: Member = result.data.member;
-    localStorage.setItem("memberData", JSON.stringify(member));
 
     return member;
   }
@@ -36,15 +35,12 @@ class MemberService {
     });
 
     const member: Member = result.data.member;
-    localStorage.setItem("memberData", JSON.stringify(member));
 
     return member;
   }
 
   public async logout(): Promise<void> {
     await axiosInstance.post("/member/logout", {}, { withCredentials: true });
-
-    localStorage.removeItem("memberData");
   }
 
   public async updateMember(input: MemberUpdateInput): Promise<Member> {
@@ -63,7 +59,6 @@ class MemberService {
     });
 
     const member: Member = result.data;
-    localStorage.setItem("memberData", JSON.stringify(member));
     return member;
   }
 }
