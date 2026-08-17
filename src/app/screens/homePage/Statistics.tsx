@@ -10,16 +10,16 @@ export default function Statistics() {
         <Stack className="info">
           <Stack className="static-box">
             <Box className="static-num">
-              <CountUp start={0} end={15} duration={2} />
+              <CountUp start={0} end={500} duration={2} />+
             </Box>
-            <Box className="static-text">Branches</Box>
+            <Box className="static-text">Products</Box>
           </Stack>
           <Divider height="64" width="2" bg="#E3C08D" />
           <Stack className="static-box">
             <Box className="static-num">
-              <CountUp start={0} end={10} duration={2} />
+              <CountUp start={0} end={4.8} decimals={1} duration={2} />/5
             </Box>
-            <Box className="static-text">Experience</Box>
+            <Box className="static-text">Average rating</Box>
           </Stack>
           <Divider height="64" width="2" bg="#E3C08D" />
           <Stack className="static-box">
@@ -31,9 +31,9 @@ export default function Statistics() {
           <Divider height="64" width="2" bg="#E3C08D" />
           <Stack className="static-box">
             <Box className="static-num">
-              <CountUp start={0} end={200} duration={2} />k +
+              <CountUp start={0} end={50} duration={2} />k +
             </Box>
-            <Box className="static-text">satisfied customers</Box>
+            <Box className="static-text">Satisfied customers</Box>
           </Stack>
         </Stack>
       </Container>
