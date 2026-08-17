@@ -138,38 +138,11 @@ export default function OrdersPage() {
             </Box>
           </Box>
           <Box className={"order-info-box"} sx={{ mt: "15px" }}>
-            <input
-              type={"text"}
-              name={"cardNumber"}
-              placeholder={"Card number : **** 4090 2002 7495"}
-              className={"card-input"}
-            />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <input
-                type={"text"}
-                name={"cardPeriod"}
-                placeholder={"07 / 24"}
-                className={"card-half-input"}
-              />
-              <input
-                type={"text"}
-                name={"cardCVV"}
-                placeholder={"CVV : 010"}
-                className={"card-half-input"}
-              />
-            </div>
-            <input
-              type={"text"}
-              name={"cardCreator"}
-              placeholder={"Justin Robertson"}
-              className={"card-input"}
-            />
+            <span className={"payment-method-title"}>Payment Method</span>
+            <p className={"payment-method-desc"}>
+              Cash on delivery or pay when your order is confirmed — no card
+              details are stored.
+            </p>
             <div className={"cards-box"}>
               <img src={"/icons/western-card.svg"} />
               <img src={"/icons/master-card.svg"} />
