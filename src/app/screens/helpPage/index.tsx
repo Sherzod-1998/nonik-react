@@ -61,6 +61,7 @@ export default function HelpPage() {
   return (
     <div className={"help-page"}>
       <Container className={"help-container"}>
+        <Box className={"order-page-title"}>Help & Support</Box>
         <TabContext value={value}>
           <Box className={"help-menu"}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

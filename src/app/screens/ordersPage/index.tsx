@@ -70,6 +70,7 @@ export default function OrdersPage() {
     <div className={"order-page"}>
       <Container className="order-container">
         <Stack className={"order-left"}>
+          <Box className={"order-page-title"}>My Orders</Box>
           <TabContext value={value}>
             <Box className={"order-nav-frame"}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
