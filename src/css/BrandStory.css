@@ -1,0 +1,102 @@
+/* BRAND STORY */
+
+.homepage .brand-story-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 70px 0;
+  background: #fdf6ee;
+}
+
+.homepage .brand-story-frame .brand-story-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .brand-story-frame .category-title {
+  text-align: center;
+  font-family: "Roboto Serif", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.44px;
+  color: #000;
+}
+
+.homepage .brand-story-frame .brand-story-quote {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 40px;
+  padding: 4px 0 4px 28px;
+  border-left: 2px solid #d4af37;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  letter-spacing: 0.2px;
+  color: #2a2a2a;
+  text-align: left;
+}
+
+.homepage .brand-story-frame .brand-story-steps {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 56px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.homepage .brand-story-frame .brand-story-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.homepage .brand-story-frame .brand-story-step .ritual-icon {
+  font-size: 34px;
+  color: #d4af37;
+  margin-bottom: 12px;
+}
+
+.homepage .brand-story-frame .brand-story-step-label {
+  font-family: "Roboto Serif", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.homepage .brand-story-frame .brand-story-step-desc {
+  font-family: "Poppins";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .homepage .brand-story-frame .brand-story-quote {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .homepage .brand-story-frame .brand-story-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .homepage .brand-story-frame .brand-story-step {
+    max-width: 320px;
+  }
+}
