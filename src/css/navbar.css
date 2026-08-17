@@ -29,8 +29,9 @@
   flex-direction: column;
 }
 
-/* --- Sticky nav bar --- */
-.home-navbar .nav-bar {
+/* --- Sticky nav bar (sibling of .home-navbar, not nested inside it,
+   so it stays stuck for the full page height, not just the hero) --- */
+.nav-bar {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -40,11 +41,11 @@
   box-shadow: 0 1px 0 rgba(215, 182, 134, 0.15), 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.home-navbar .navbar-container {
+.nav-bar .navbar-container {
   height: 76px;
 }
 
-.home-navbar .navbar-container .menu {
+.nav-bar .navbar-container .menu {
   height: 76px;
   display: flex;
   flex-direction: row;
@@ -62,12 +63,12 @@
   color: var(--nonik-gold);
 }
 
-.home-navbar .navbar-container .menu .brand-logo {
+.nav-bar .navbar-container .menu .brand-logo {
   width: 125px;
   height: 30px;
 }
 
-.home-navbar .navbar-container .menu .links {
+.nav-bar .navbar-container .menu .links {
   min-width: 700px;
   display: flex;
   flex-direction: row;
@@ -76,7 +77,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.home-navbar .navbar-container .menu .links .login-button {
+.nav-bar .navbar-container .menu .links .login-button {
   background: linear-gradient(135deg, #D7B686, #D4AF37);
   color: #0B0B0C;
   font-family: 'Poppins', sans-serif;
@@ -85,12 +86,12 @@
   transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
-.home-navbar .navbar-container .menu .links .login-button:hover {
+.nav-bar .navbar-container .menu .links .login-button:hover {
   background: linear-gradient(135deg, #E8C99A, #D4AF37);
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-.home-navbar .navbar-container .menu .user-avatar {
+.nav-bar .navbar-container .menu .user-avatar {
   width: 44px;
   height: 44px;
   border-radius: 22px;
@@ -98,23 +99,23 @@
   border: 1px solid rgba(215, 182, 134, 0.3);
 }
 
-.home-navbar a {
+.nav-bar a {
   text-decoration: none;
 }
 
-.home-navbar .hover-line a {
+.nav-bar .hover-line a {
   z-index: 100;
   color: var(--nonik-text);
   font-family: 'Poppins', sans-serif;
 }
 
-.home-navbar .underline {
+.nav-bar .underline {
   display: block;
   content: "";
   border-bottom: solid 2px var(--nonik-accent);
 }
 
-.home-navbar .hover-line:after {
+.nav-bar .hover-line:after {
   display: block;
   content: "";
   border-bottom: solid 2px var(--nonik-accent);
@@ -122,11 +123,11 @@
   transition: transform 250ms ease-in-out;
 }
 
-.home-navbar .hover-line:hover:after {
+.nav-bar .hover-line:hover:after {
   transform: scaleX(1);
 }
 
-.home-navbar div.hover-line:after {
+.nav-bar div.hover-line:after {
   transform-origin: 0% 50%;
 }
 
@@ -377,7 +378,7 @@
 /* ============ RESPONSIVE ============ */
 
 @media (max-width: 1024px) {
-  .home-navbar .navbar-container .menu .links,
+  .nav-bar .navbar-container .menu .links,
   .other-navbar .navbar-container .menu .links {
     min-width: unset;
     gap: 16px;
@@ -429,7 +430,7 @@
     height: 220px;
   }
 
-  .home-navbar .navbar-container .menu .links,
+  .nav-bar .navbar-container .menu .links,
   .other-navbar .navbar-container .menu .links {
     min-width: unset;
     gap: 10px;

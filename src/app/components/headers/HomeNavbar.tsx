@@ -58,7 +58,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
   };
 
   return (
-    <div className="home-navbar">
+    <>
       <div className="nav-bar">
         <Container className="navbar-container">
           <Stack className="menu">
@@ -173,6 +173,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
           </Stack>
         </Container>
       </div>
+      <div className="home-navbar">
       <div className="hero-section">
         <div className="hero-glow"></div>
         <Container className="hero-container">
@@ -204,6 +205,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
           </Stack>
         </Container>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
