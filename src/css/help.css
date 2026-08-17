@@ -2,7 +2,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  background: #f8f8ff;
+  background: #f8f4ee;
 }
 
 .help-page .help-container {
@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-bottom: 1px solid #f8f8ff;
+  border-bottom: 1px solid #e7e0d8;
 }
 
 .help-page .help-menu .table-list {
@@ -31,6 +31,18 @@
 
 .help-page .css-heg063-MuiTabs-flexContainer {
   justify-content: space-between;
+}
+
+.help-page .table_list .MuiTabs-indicator {
+  background-color: #d4af37;
+}
+
+.help-page .table_list .MuiTab-root {
+  color: #6b625a;
+}
+
+.help-page .table_list .MuiTab-root.Mui-selected {
+  color: #08090d;
 }
 
 .help-page .css-19kzrtu {
@@ -50,8 +62,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f8f8ff;
-  border: 1px solid #ededed;
+  background: #faf6f1;
+  border: 1px solid #e7e0d8;
   box-shadow: 0px 20px 30px rgba(25, 25, 46, 0.04);
   border-radius: 8px;
 }
@@ -64,8 +76,8 @@
 }
 
 .rules-box .rules-frame p {
-  border-bottom: 1px solid #dddddd;
-  color: #000000;
+  border-bottom: 1px solid #e7e0d8;
+  color: #08090d;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -87,8 +99,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #f8f8ff;
-  border: 1px solid #ededed;
+  background: #faf6f1;
+  border: 1px solid #e7e0d8;
   box-shadow: 0px 20px 30px rgba(25, 25, 46, 0.04);
   border-radius: 8px;
 }
@@ -112,7 +124,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-  color: #140342;
+  color: #08090d;
 }
 
 .help-page .admin-letter-frame p {
@@ -122,7 +134,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
-  color: #4f547b;
+  color: #6b625a;
 }
 
 .help-page .admin-letter-container .admin-letter-frame {
@@ -144,7 +156,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #140342;
+  color: #08090d;
 }
 
 .help-page .admin-letter-frame .admin-input-box input {
@@ -153,15 +165,15 @@
   width: 100%;
   height: 60px;
   display: flex;
-  background: #f8f8ff;
-  border: 1px solid #dddddd;
+  background: #faf6f1;
+  border: 1px solid #e7e0d8;
   border-radius: 8px;
   font-family: "Verdana";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
-  color: #4f547b;
+  color: #6b625a;
 }
 
 .help-page .admin-letter-frame .admin-input-box textarea {
@@ -170,13 +182,13 @@
   width: 100%;
   height: 150px;
   display: flex;
-  background: #f8f8ff;
-  border: 1px solid #dddddd;
+  background: #faf6f1;
+  border: 1px solid #e7e0d8;
   border-radius: 8px;
   font-family: "Verdana";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
-  color: #4f547b;
+  color: #6b625a;
 }

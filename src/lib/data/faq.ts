@@ -1,26 +1,26 @@
 export const faq = [
 	{
-		question: 'How to make order?',
-		answer: 'You should choose products and make an order via basket!',
+		question: 'How do I place an order?',
+		answer: 'Choose the products you love, add them to your basket, and complete checkout — your order will be confirmed right away.',
 	},
 	{
-		question: 'How long does delivery takes?',
-		answer: 'It depends on your location. The max delivery time is 1 hour!',
+		question: 'How long does delivery take?',
+		answer: 'Delivery usually takes 3-5 business days depending on your location.',
 	},
 	{
-		question: 'Is our details secure in this platform?',
-		answer: 'Of course, we take full responsibility for your provided user details!',
+		question: 'Is my personal information secure?',
+		answer: 'Yes, we protect your account and personal details with industry-standard security practices at every step.',
 	},
 	{
-		question: 'I am blocked, what should I do?',
-		answer: 'There is a reason for your block, please contact to us!',
+		question: 'My account has been blocked, what should I do?',
+		answer: 'Accounts are blocked for a specific reason related to our policies, so please contact our support team for details and next steps.',
 	},
 	{
-		question: 'How can I cancel order?',
-		answer: 'You can cancel your order any time easily, just go to your orders page!',
+		question: 'Can I cancel my order?',
+		answer: 'Orders can be cancelled from your Orders page while they are still paused, but once an order has been paid and processed it can no longer be cancelled.',
 	},
 	{
-		question: 'Who developed this platform?',
-		answer: 'ITC Global developers developed this platform!',
+		question: 'How can I contact Nonik support?',
+		answer: 'You can reach our team anytime through the Contact form on this page, and we will get back to you as soon as possible.',
 	},
 ];

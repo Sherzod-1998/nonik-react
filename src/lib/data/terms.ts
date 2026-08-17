@@ -1,6 +1,7 @@
 export const terms = [
-	'Making orders from the site is complete, live register to use communications you must pass.',
-	'This is why you cannot cancel your orders once you have paid for them check before making payments.',
-	'It is not possible to write and distribute personal ads without the permission of the admin.',
-	'All your actions are under the control of our  administration, so please follow the general rules.',
+	'You must register an account before placing an order on Nonik.',
+	'Orders can be cancelled only while they are still paused; once an order has been paid and processed, it can no longer be cancelled.',
+	'Posting advertisements or promotional content without prior permission from our administration is not allowed.',
+	'Nonik reserves the right to moderate content and take action against accounts that violate these terms.',
+	'By using our site, you agree to keep your account details accurate and to follow our general community guidelines.',
 ];
