@@ -9,19 +9,23 @@ const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   // /member/detail endpoint (valid as long as the cookie is valid), so a
   // page refresh doesn't log the user out.
   const [authMember, setAuthMember] = useState<Member | null>(null);
+  const [authLoading, setAuthLoading] = useState<boolean>(true);
 
   const [orderBuilder, setOrderBuilder] = useState<Date>(new Date());
 
   useEffect(() => {
     const memberService = new MemberService();
-    memberService.getMemberDetail().then((member) => {
-      if (member) setAuthMember(member);
-    });
+    memberService
+      .getMemberDetail()
+      .then((member) => {
+        if (member) setAuthMember(member);
+      })
+      .finally(() => setAuthLoading(false));
   }, []);
 
   return (
     <GlobalContext.Provider
-      value={{ authMember, setAuthMember, orderBuilder, setOrderBuilder }}
+      value={{ authMember, setAuthMember, authLoading, orderBuilder, setOrderBuilder }}
     >
       {children}
     </GlobalContext.Provider>

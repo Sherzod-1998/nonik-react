@@ -4,6 +4,7 @@ import { Member } from "../../lib/types/member";
 interface GlobalInterface {
   authMember: Member | null;
   setAuthMember: (member: Member | null) => void;
+  authLoading: boolean;
   orderBuilder: Date;
   setOrderBuilder: (input: Date) => void;
 }

@@ -29,7 +29,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
 export default function OrdersPage() {
   const { setPausedOrders, setProcessOrders, setFinishedOrders } =
     actionDispatch(useDispatch());
-  const { orderBuilder, authMember } = useGlobals();
+  const { orderBuilder, authMember, authLoading } = useGlobals();
   const history = useHistory();
   const [value, setValue] = useState("1");
   const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
@@ -62,7 +62,10 @@ export default function OrdersPage() {
     setValue(newValue);
   };
 
-  if (!authMember) history.push("/");
+  useEffect(() => {
+    if (!authLoading && !authMember) history.push("/");
+  }, [authLoading, authMember, history]);
+
   return (
     <div className={"order-page"}>
       <Container className="order-container">

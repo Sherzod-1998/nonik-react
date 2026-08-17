@@ -11,12 +11,12 @@ import { Product } from "../../../lib/types/product";
 
 export default function UserPage() {
   const history = useHistory();
-  const { authMember } = useGlobals();
+  const { authMember, authLoading } = useGlobals();
   const [favorites, setFavorites] = useState<Product[]>([]);
 
   useEffect(() => {
-    if (!authMember) history.push("/");
-  }, [authMember, history]);
+    if (!authLoading && !authMember) history.push("/");
+  }, [authLoading, authMember, history]);
 
   useEffect(() => {
     const favoriteService = new FavoriteService();
