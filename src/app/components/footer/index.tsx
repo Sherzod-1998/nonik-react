@@ -6,7 +6,7 @@ import styled from "styled-components";
 const Footers = styled.div`
   width: 100%;
   display: flex;
-  background: #faf6f1;
+  background: #111113;
   padding: 80px 0 40px 0;
 `;
 
@@ -28,10 +28,18 @@ export default function Footer() {
               care and captivating charm.
             </Box>
             <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
+              <div className="sns-icon">
+                <img src={"/icons/facebook.svg"} />
+              </div>
+              <div className="sns-icon">
+                <img src={"/icons/twitter.svg"} />
+              </div>
+              <div className="sns-icon">
+                <img src={"/icons/instagram.svg"} />
+              </div>
+              <div className="sns-icon">
+                <img src={"/icons/youtube.svg"} />
+              </div>
             </Box>
           </Stack>
           <Stack className="footer-links">

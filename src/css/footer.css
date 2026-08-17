@@ -18,31 +18,53 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 30px;
-  color: #6b625a;
+  color: #b3a796;
 }
 
 .nonik {
   font-family: 'Playfair Display', serif;
-  color: #2a2420;
+  letter-spacing: 2px;
+  color: #d4af37;
 }
 
 .sns-context {
   margin-top: 17px;
-  width: 137px;
+  width: 170px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.sns-context img {
-  opacity: 0.6;
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+.sns-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(215, 182, 134, 0.3);
+  background: rgba(215, 182, 134, 0.08);
+  transition: background 200ms ease-in-out, border-color 200ms ease-in-out,
+    box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
   cursor: pointer;
 }
 
-.sns-context img:hover {
+.sns-icon img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  transition: opacity 200ms ease-in-out;
+}
+
+.sns-icon:hover {
+  background: rgba(215, 182, 134, 0.16);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  transform: scale(1.06);
+}
+
+.sns-icon:hover img {
   opacity: 1;
-  transform: scale(1.1);
 }
 
 .foot-category-title {
@@ -52,7 +74,7 @@
   font-weight: 600;
   font-size: 22px;
   line-height: 34px;
-  color: #2a2420;
+  color: #d4af37;
 }
 
 .foot-category-link {
@@ -69,14 +91,14 @@
 }
 
 .foot-category-link a {
-  color: #6b625a;
+  color: #b3a796;
   text-decoration: none;
   cursor: pointer;
   transition: color 200ms ease-in-out;
 }
 
 .foot-category-link a:hover {
-  color: #b98f55;
+  color: #d4af37;
 }
 
 .find-us {
@@ -90,7 +112,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 34px;
-  color: #d7b686;
+  color: #d4af37;
 }
 
 .find-us div {
@@ -100,11 +122,11 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 34px;
-  color: #6b625a;
+  color: #b3a796;
 }
 
 .footer-divider {
-  border: 1px solid #e7e0d8;
+  border: 1px solid rgba(215, 182, 134, 0.15);
   width: 100%;
   margin-top: 60px;
 }
@@ -116,13 +138,13 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 34px;
-  color: #6b625a;
+  color: #b3a796;
 }
 
 .foot-category-title:after {
   display: block;
   content: "";
-  border-bottom: solid 2px #d7b686;
+  border-bottom: solid 2px #d4af37;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
   transform-origin: 0% 50%;

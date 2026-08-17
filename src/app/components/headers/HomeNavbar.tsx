@@ -174,11 +174,13 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         </Container>
       </div>
       <div className="hero-section">
+        <div className="hero-glow"></div>
         <Container className="hero-container">
           <Stack className={"header-frame"}>
             <Stack className={"detail"}>
+              <div className="gold-rule"></div>
               <Box className={"wel-txt"}>
-                The Choice — Beauty That Chooses You.
+                The Choice — <span className="gold-text">Beauty That Chooses You.</span>
               </Box>
               <Box className={"service-txt"}>
                 Learn more about other cosmetics with NONIK
@@ -197,6 +199,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             </Stack>
             <Stack className={"logo-frame"}>
               <div className="logo-img"></div>
+              <div className="logo-ring"></div>
             </Stack>
           </Stack>
         </Container>
