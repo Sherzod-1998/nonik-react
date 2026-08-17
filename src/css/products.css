@@ -125,7 +125,50 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+
+}
+
+.products-page .products .results-summary {
+  margin-left: 25px;
+  margin-top: 40px;
+  width: calc(100% - 25px);
+  display: flex;
+  flex-direction: column;
+}
+
+.products-page .products .results-summary .results-count {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #181a20;
+}
+
+.products-page .products .results-summary .active-filters {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.products-page .products .results-summary .active-filters .filter-chip {
+  background: #ffffff;
+  color: #181a20;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.products-page .products .results-summary .active-filters .clear-filters-btn {
+  min-width: auto;
+  padding: 0;
+  text-transform: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #e3c08d;
 }
 
 .products .product-wrapper .no-data {
@@ -437,6 +480,41 @@
   line-height: 43px;
 }
 
+.products-page .products .address .visit-us-info {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.products-page .products .address .visit-us-info .visit-us-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.products-page .products .address .visit-us-info .visit-us-item span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #e3c08d;
+}
+
+.products-page .products .address .visit-us-info .visit-us-item div {
+  margin-left: 10px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #343434;
+}
+
 .products-page .products .about-left .about-left-desc {
   padding: 20px;
   width: 100%;
@@ -540,14 +618,17 @@
 }
 
 .products-page .products .list-category-section {
-  width: 120%;
+  width: 100%;
   min-height: 00px;
   display: flex;
   flex-direction: row;
+}
 
-  
-
-  
+.products-page .products .list-category-section .product-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
 }
 
 

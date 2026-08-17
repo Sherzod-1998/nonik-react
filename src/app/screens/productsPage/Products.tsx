@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Box, Button, Container, Stack, Checkbox, FormControlLabel, Badge, Pagination, PaginationItem } from "@mui/material";
+import { Box, Button, Container, Stack, Checkbox, FormControlLabel, Badge, Pagination, PaginationItem, Chip, Skeleton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -30,6 +30,14 @@ const productRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
+const initialProductSearch: ProductInquiry = {
+  page: 1,
+  limit: 8,
+  order: "createdAt",
+  productCollection: [],
+  search: "",
+};
+
 interface ProductsProps {
   onAdd: (item: CartItem) => void;
 }
@@ -39,23 +47,22 @@ export default function Products(props: ProductsProps) {
   const { setProducts } = actionDispatch(useDispatch());
   const { products } = useSelector(productRetriever);
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
-    page: 1,
-    limit: 8,
-    order: "createdAt",
-     productCollection: [],
-    search: "",
+    ...initialProductSearch,
   });
   const [searchText, setSearchText] = useState<string>("");
   const [likedIds, setLikedIds] = useState<Set<string>>(new Set());
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const history = useHistory();
   const { authMember } = useGlobals();
 
   useEffect(() => {
     const product = new ProductService();
+    setIsLoading(true);
     product
       .getProducts(productSearch)
       .then((data) => setProducts(data))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setIsLoading(false));
   }, [productSearch]);
 
   useEffect(() => {
@@ -83,6 +90,16 @@ export default function Products(props: ProductsProps) {
 
   const searchProductHandler = () => {
     setProductSearch({ ...productSearch, page: 1, search: searchText });
+  };
+
+  const removeSearchTermHandler = () => {
+    setSearchText("");
+    setProductSearch({ ...productSearch, page: 1, search: "" });
+  };
+
+  const clearFiltersHandler = () => {
+    setSearchText("");
+    setProductSearch({ ...initialProductSearch });
   };
 
   const paginationHandler = (e: ChangeEvent<any>, value: number) => {
@@ -193,10 +210,53 @@ export default function Products(props: ProductsProps) {
               </div>
               
             </Stack>
-            
 
-            <Stack className="product-wrapper">
-              {products.length !== 0 ? (
+
+            <Stack className="product-column">
+              <Stack className="results-summary">
+                <span className="results-count">
+                  Showing {products.length} products
+                </span>
+                {(productSearch.productCollection.length > 0 ||
+                  Boolean(productSearch.search)) && (
+                  <Stack className="active-filters">
+                    {productSearch.productCollection.map((collection) => (
+                      <Chip
+                        key={collection}
+                        className="filter-chip"
+                        label={collection.charAt(0) + collection.slice(1).toLowerCase()}
+                        onDelete={() => searchCollectionHandler(collection)}
+                      />
+                    ))}
+                    {productSearch.search && (
+                      <Chip
+                        className="filter-chip"
+                        label={`"${productSearch.search}"`}
+                        onDelete={removeSearchTermHandler}
+                      />
+                    )}
+                    <Button className="clear-filters-btn" onClick={clearFiltersHandler}>
+                      Clear all filters
+                    </Button>
+                  </Stack>
+                )}
+              </Stack>
+
+              <Stack className="product-wrapper">
+              {isLoading ? (
+                Array.from({ length: productSearch.limit }).map((_, index) => (
+                  <Stack className="product-card" key={`skeleton-${index}`}>
+                    <Skeleton
+                      variant="rectangular"
+                      width={273}
+                      height={275}
+                      sx={{ borderRadius: "0px 50px 0px 0px" }}
+                    />
+                    <Skeleton variant="text" width={150} height={40} sx={{ marginTop: "10px" }} />
+                    <Skeleton variant="text" width={80} height={36} />
+                  </Stack>
+                ))
+              ) : products.length !== 0 ? (
                 products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
@@ -253,6 +313,7 @@ export default function Products(props: ProductsProps) {
               ) : (
                 <Box className="no-data">Products are not available!</Box>
               )}
+              </Stack>
             </Stack>
           </Stack>
 
@@ -273,32 +334,28 @@ export default function Products(props: ProductsProps) {
         </Stack>
       </Container>
 
-      {/* <div className="brands-logo">
-        <Container className="family-brands">
-          <Box className="category-title">Our Top Brands</Box>
-          <Stack className="brand-list">
-            {["gurme", "sweets", "seafood", "doner"].map((img) => (
-              <Box key={img} className="review-box">
-                <img src={`/img/${img}.webp`} alt={img} />
-              </Box>
-            ))}
-          </Stack>
-        </Container>
-      </div> */}
-
       <div className="address">
         <Container>
           <Stack className="address-area">
-            <Box className="title">Our address</Box>
-            <iframe
-              style={{ marginTop: '60px', border: 0 }}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.119026111128!2d69.2401!3d41.2995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4b1e01ab3cf%3A0x123456789abcdef!2sYour%20Business%20Name!5e0!3m2!1sen!2s!4v1621234567890"
-              width="1320"
-              height="500"
-              referrerPolicy="no-referrer-when-downgrade"
-              loading="lazy"
-              allowFullScreen
-            ></iframe>
+            <Box className="title">Visit Us</Box>
+            <Stack className="visit-us-info">
+              <Box className="visit-us-item">
+                <span>Location</span>
+                <div>Seoul</div>
+              </Box>
+              <Box className="visit-us-item">
+                <span>Phone</span>
+                <div>+821099105777</div>
+              </Box>
+              <Box className="visit-us-item">
+                <span>Email</span>
+                <div>nonik@gmail.com</div>
+              </Box>
+              <Box className="visit-us-item">
+                <span>Hours</span>
+                <div>Visit 24 hours</div>
+              </Box>
+            </Stack>
           </Stack>
         </Container>
       </div>
