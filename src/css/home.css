@@ -67,12 +67,12 @@
 
 .homepage .popular-dishes-frame .popular-section .category-title {
     text-align: center;
-    font-family: "Roboto Serif", sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    letter-spacing: 1.44px;
+    letter-spacing: 0.5px;
     color: #000;
 }
 .homepage .popular-dishes-frame .popular-section .cards-frame {
@@ -163,9 +163,9 @@
 }
   
 .homepage .new-products-frame .category-title {
-    font-family: "Dancing Script";
+    font-family: 'Playfair Display', serif;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 36px;
     line-height: 43px;
 }
@@ -585,14 +585,28 @@ text-align: left;
   }
 
   .homepage .popular-dishes-frame .popular-section .cards-frame {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 0 20px 12px;
+    margin: 43px 0 0;
+  }
+
+  .homepage .popular-dishes-frame .popular-section .cards-frame::-webkit-scrollbar {
+    display: none;
   }
 
   .homepage .popular-dishes-frame .cards-frame .card {
-    min-width: calc(50% - 10px);
-    width: calc(50% - 10px);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-width: 78vw;
+    width: 78vw;
+    min-height: 320px;
+    margin: 0;
   }
 
   .homepage .new-products-frame,
@@ -603,14 +617,27 @@ text-align: left;
 
   .homepage .new-products-frame .main .cards-frame,
   .homepage .active-users-frame .main .cards-frame {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 0 20px 12px;
+    margin: 47px 0 0;
+  }
+
+  .homepage .new-products-frame .main .cards-frame::-webkit-scrollbar,
+  .homepage .active-users-frame .main .cards-frame::-webkit-scrollbar {
+    display: none;
   }
 
   .homepage .new-products-frame .main .card,
   .homepage .active-users-frame .main .card {
-    width: calc(50% - 10px);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 68vw;
   }
 
   .homepage .events-frame {
@@ -650,12 +677,12 @@ text-align: left;
   }
 
   .homepage .popular-dishes-frame .cards-frame .card {
-    min-width: 100%;
-    width: 100%;
+    min-width: 84vw;
+    width: 84vw;
   }
 
   .homepage .new-products-frame .main .card,
   .homepage .active-users-frame .main .card {
-    width: 100%;
+    width: 74vw;
   }
 }
