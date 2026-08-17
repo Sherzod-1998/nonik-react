@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Container, Stack } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Container, IconButton, Stack } from "@mui/material";
 import { CssVarsProvider } from "@mui/joy/styles";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -8,22 +8,46 @@ import CardCover from "@mui/joy/CardCover";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { CardOverflow } from "@mui/joy";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
+import { useGlobals } from "../../hooks/useGlobals";
+import FavoriteService from "../../services/FavoriteService";
 
 
 const popularDishesRetriever = createSelector(
-  retrievePopularDishes, 
+  retrievePopularDishes,
   (popularDishes) => ({popularDishes}
 ));
 
 
 export default function PopularDishes() {
   const {popularDishes} = useSelector(popularDishesRetriever);
+  const { authMember } = useGlobals();
+  const [likedIds, setLikedIds] = useState<Set<string>>(new Set());
+
+  const likeHandler = async (e: React.MouseEvent, productId: string) => {
+    e.stopPropagation();
+    if (!authMember) return;
+
+    try {
+      const favoriteService = new FavoriteService();
+      const { liked } = await favoriteService.toggleFavorite(productId);
+      setLikedIds((prev) => {
+        const updated = new Set(prev);
+        if (liked) updated.add(productId);
+        else updated.delete(productId);
+        return updated;
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="popular-dishes-frame">
@@ -37,6 +61,16 @@ export default function PopularDishes() {
                 return (
                   <CssVarsProvider key={product._id}>
                     <Card className="card">
+                      <IconButton
+                        className="favorite-btn"
+                        onClick={(e) => likeHandler(e, product._id)}
+                      >
+                        {likedIds.has(product._id) ? (
+                          <FavoriteIcon sx={{ color: "#e63946" }} />
+                        ) : (
+                          <FavoriteBorderIcon sx={{ color: "#fff" }} />
+                        )}
+                      </IconButton>
                       <CardCover>
                         <img src={imagePath} alt="" />
                       </CardCover>

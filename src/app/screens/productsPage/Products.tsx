@@ -5,17 +5,21 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { setProducts } from "./slice";
 import { Product, ProductInquiry } from "../../../lib/types/product";
 import { retrieveProducts } from "./selector";
 import ProductService from "../../services/ProductService";
+import FavoriteService from "../../services/FavoriteService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
 import { RadioGroup, Radio } from "@mui/material";
+import { useGlobals } from "../../hooks/useGlobals";
 
 
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -42,7 +46,9 @@ export default function Products(props: ProductsProps) {
     search: "",
   });
   const [searchText, setSearchText] = useState<string>("");
+  const [likedIds, setLikedIds] = useState<Set<string>>(new Set());
   const history = useHistory();
+  const { authMember } = useGlobals();
 
   useEffect(() => {
     const product = new ProductService();
@@ -85,6 +91,24 @@ export default function Products(props: ProductsProps) {
 
   const chooseDishHandler = (id: string) => {
     history.push(`/products/${id}`);
+  };
+
+  const likeHandler = async (e: React.MouseEvent, productId: string) => {
+    e.stopPropagation();
+    if (!authMember) return;
+
+    try {
+      const favoriteService = new FavoriteService();
+      const { liked } = await favoriteService.toggleFavorite(productId);
+      setLikedIds((prev) => {
+        const updated = new Set(prev);
+        if (liked) updated.add(productId);
+        else updated.delete(productId);
+        return updated;
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -204,6 +228,16 @@ export default function Products(props: ProductsProps) {
                           <Badge badgeContent={product.productView} color="secondary">
                             <RemoveRedEyeIcon sx={{ color: product.productView === 0 ? "gray" : "white" }} />
                           </Badge>
+                        </Button>
+                        <Button
+                          className="favorite-btn"
+                          onClick={(e) => likeHandler(e, product._id)}
+                        >
+                          {likedIds.has(product._id) ? (
+                            <FavoriteIcon sx={{ color: "#e63946" }} />
+                          ) : (
+                            <FavoriteBorderIcon sx={{ color: "#fff" }} />
+                          )}
                         </Button>
                       </Stack>
                       <Box className="product-desc">

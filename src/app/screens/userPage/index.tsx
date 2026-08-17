@@ -1,20 +1,33 @@
+import { useEffect, useState } from "react";
 import { Box, Container, Stack } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
 import "../../../css/userPage.css";
 import { Settings } from "./Settings";
+import FavoriteService from "../../services/FavoriteService";
+import { Product } from "../../../lib/types/product";
 
 export default function UserPage() {
   const history = useHistory();
   const { authMember } = useGlobals();
+  const [favorites, setFavorites] = useState<Product[]>([]);
 
   if (!authMember) history.push("/");
+
+  useEffect(() => {
+    const favoriteService = new FavoriteService();
+    favoriteService
+      .getMyFavorites()
+      .then((data) => setFavorites(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className={"user-page"}>
       <Container>
@@ -78,6 +91,38 @@ export default function UserPage() {
                   : "no description"}
               </p>
             </Box>
+          </Stack>
+        </Stack>
+
+        <Stack className={"my-page-wishlist"}>
+          <Box className={"menu-name"}>My Wishlist</Box>
+          <Stack className={"wishlist-cards-frame"}>
+            {favorites.length !== 0 ? (
+              favorites.map((product: Product) => {
+                const imagePath = `${serverApi}/${product.productImages[0]}`;
+                return (
+                  <Link
+                    key={product._id}
+                    to={`/products/${product._id}`}
+                    className={"wishlist-card"}
+                  >
+                    <img
+                      src={imagePath}
+                      alt={product.productName}
+                      className={"wishlist-card-img"}
+                    />
+                    <span className={"wishlist-card-name"}>
+                      {product.productName}
+                    </span>
+                    <span className={"wishlist-card-price"}>
+                      ${product.productPrice}
+                    </span>
+                  </Link>
+                );
+              })
+            ) : (
+              <Box className={"no-data"}>No favorites yet</Box>
+            )}
           </Stack>
         </Stack>
       </Container>

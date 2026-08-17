@@ -101,6 +101,26 @@
 
 
 
+.homepage .popular-dishes-frame .cards-frame .card .favorite-btn,
+.homepage .new-products-frame .main .card .favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  padding: 5px;
+  min-width: 36px;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.homepage .popular-dishes-frame .cards-frame .card .favorite-btn:hover,
+.homepage .new-products-frame .main .card .favorite-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
 .homepage .popular-dishes-frame .cards-frame .card .card-cover {
   background: linear-gradient(
       to top, 
