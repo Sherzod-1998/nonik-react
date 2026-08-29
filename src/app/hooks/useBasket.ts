@@ -3,11 +3,19 @@ import { CartItem } from "../../lib/types/search";
 
 const useBasket = () => {
   const cartJson: string | null = localStorage.getItem("cartData");
-  const currentCart = cartJson ? JSON.parse(cartJson) : [];
+  let currentCart: CartItem[] = [];
+  if (cartJson) {
+    try {
+      currentCart = JSON.parse(cartJson);
+    } catch (err) {
+      console.error("Failed to parse cartData from localStorage:", err);
+      currentCart = [];
+    }
+  }
   const [cartItems, setCartItems] = useState<CartItem[]>(currentCart);
 
   const onAdd = (input: CartItem) => {
-    const exist: any = cartItems.find(
+    const exist: CartItem | undefined = cartItems.find(
       (item: CartItem) => item._id === input._id
     );
     if (exist) {
@@ -26,9 +34,10 @@ const useBasket = () => {
   };
 
   const onRemove = (input: CartItem) => {
-    const exist: any = cartItems.find(
+    const exist: CartItem | undefined = cartItems.find(
       (item: CartItem) => item._id === input._id
     );
+    if (!exist) return;
     if (exist.quantity === 1) {
       const cartUpdate = cartItems.filter(
         (item: CartItem) => item._id !== input._id
