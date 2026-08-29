@@ -1,15 +1,14 @@
 {
-  "name": "burak-react",
+  "name": "nonik-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.8.4",
-    "@mui/joy": "^5.0.0-beta.51",
     "@mui/lab": "^5.0.0-alpha.86",
     "@mui/material": "^6.3.1",
+    "@reduxjs/toolkit": "^1.8.1",
     "axios": "^1.7.9",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -28,7 +27,6 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
