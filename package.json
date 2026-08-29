@@ -4,6 +4,7 @@
   "private": true,
   "description": "Nonik — a Korean cosmetics e-commerce storefront built with React, TypeScript, and Redux Toolkit.",
   "author": "Sherzod-1998",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sherzod-1998/nonik-react.git"

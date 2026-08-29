@@ -81,12 +81,18 @@ yarn build
 
 ## Live Demo
 
-[Coming soon]
+[nonik.uz](https://nonik.uz)
 
 ## Screenshots
 
-Screenshots coming soon.
+| Homepage | Products |
+|---|---|
+| ![Homepage](docs/screenshots/homepage-desktop.png) | ![Products page](docs/screenshots/products-desktop.png) |
+
+| Mobile |
+|---|
+| <img src="docs/screenshots/homepage-mobile.png" width="300" alt="Mobile homepage" /> |
 
 ## License / Author
 
-Author: [Sherzod-1998](https://github.com/Sherzod-1998)
+MIT — see [LICENSE](./LICENSE). Author: [Sherzod-1998](https://github.com/Sherzod-1998)
