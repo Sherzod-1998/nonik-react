@@ -19,11 +19,12 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - name: Type check
-        run: npx tsc --noEmit
-
       - name: Run tests
         run: CI=true yarn test --watchAll=false
 
+      # Type checking happens here via react-scripts' bundled fork-ts-checker,
+      # not a standalone `tsc --noEmit` — the project's pinned TS 4.1.5 can't
+      # parse @mui/material's newer .d.ts syntax on its own, but the webpack
+      # plugin handles it fine.
       - name: Build
         run: CI=false yarn build
