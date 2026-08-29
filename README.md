@@ -1,46 +1,92 @@
-# Getting Started with Create React App
+# Nonik — Korean Cosmetics E-Commerce Storefront
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Nonik is a full-featured e-commerce storefront for a Korean cosmetics brand, built with React, TypeScript, and Redux Toolkit.
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Nonik lets customers browse and search a catalog of Korean skincare and cosmetics products, take an interactive skin-type quiz to get product recommendations, add items to a basket and check out, track their orders through paused/processing/finished stages, save favorite products, and manage their profile. Products, orders, and members are managed through a companion Express/MongoDB backend — this repository contains only the client application.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 18** + **TypeScript**
+- **Redux Toolkit** + **react-redux** for state management
+- **MUI v6** (`@mui/material`, `@mui/icons-material`, `@mui/lab`) with `@emotion` for styling, alongside `styled-components`
+- **react-router-dom v5** for routing
+- **axios** for HTTP requests
+- **socket.io-client** for realtime features
+- **Swiper** for carousels/sliders
+- **sweetalert2** for alerts/dialogs
+- **moment** for date handling
+- Bootstrapped with **Create React App** (`react-scripts`)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Key Features
 
-### `npm test`
+- Product catalog with browsing, search, and filtering
+- Interactive skin-type quiz with tailored product suggestions
+- Basket and checkout flow
+- Order tracking across Paused / Process / Finished tabs
+- Favorites (liked products) list
+- User profile and account settings
+- Realtime updates via Socket.IO
+- Responsive, mobile-first layout with a dark-luxury visual theme
+- Home page sections: brand story, flash-sale banner, category navigation, top/new products, statistics, and testimonials
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
 
-### `npm run build`
+The app lives under `src/app/` and is organized as:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `screens/` — top-level pages (`homePage`, `productsPage`, `ordersPage`, `userPage`, `helpPage`), several with their own Redux `slice.ts`/`selector.ts`
+- `components/` — shared UI building blocks (headers, footer, basket, product grid, order list, auth, etc.)
+- `services/` — API clients (`ProductService`, `OrderService`, `MemberService`, `FavoriteService`, `ContactService`) that talk to the backend
+- `hooks/` — reusable custom hooks
+- `store.ts` — Redux store configuration
+- `context/`, `api/`, `types/`, `enums/`, `data/` — supporting utilities, TypeScript types, and static data
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The frontend communicates with a separate **Express + TypeScript + MongoDB** backend. See [`RELATED_REPO.md`](./RELATED_REPO.md) for local setup notes, and the backend repository itself: [github.com/Sherzod-1998/nonik](https://github.com/Sherzod-1998/nonik).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Node.js (developed/tested with v20)
+- Yarn
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+yarn install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Environment Variables
 
-## Learn More
+Create a `.env` file in the project root with:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+REACT_APP_API_URL=http://localhost:3003
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This should point to the URL where the backend API is running.
+
+### Run (development)
+
+```bash
+yarn start
+```
+
+### Build (production)
+
+```bash
+yarn build
+```
+
+## Live Demo
+
+[Coming soon]
+
+## Screenshots
+
+Screenshots coming soon.
+
+## License / Author
+
+Author: [Sherzod-1998](https://github.com/Sherzod-1998)
