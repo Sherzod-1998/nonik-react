@@ -162,7 +162,7 @@ export default function Products(props: ProductsProps) {
     setProductSearch({ ...productSearch, page: value });
   };
 
-  const chooseDishHandler = (id: string) => {
+  const chooseProductHandler = (id: string) => {
     history.push(`/products/${id}`);
   };
 
@@ -418,7 +418,7 @@ export default function Products(props: ProductsProps) {
                     <Stack
                       key={product._id}
                       className="product-card"
-                      onClick={() => chooseDishHandler(product._id)}
+                      onClick={() => chooseProductHandler(product._id)}
                     >
                       <Stack
                         className="product-img"

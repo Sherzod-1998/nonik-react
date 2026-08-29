@@ -88,40 +88,6 @@
   align-items: center;
 }
 
-.products-page .products .restaurant-avatars-wrapper {
-  width: 90%;
-  height: 147px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-}
-
-.products-page .products .restaurant-avatars-wrapper .restaurant-avatars {
-  width: 108px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.products-page .products .restaurant-avatars img {
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
-}
-
-.products-page .products .restaurant-avatars span {
-  margin-top: 14px;
-  font-family: "Playfair Display", serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  color: #fffcfc;
-}
 
 .products-page .products .product-wrapper {
   margin-left: 25px;
@@ -664,25 +630,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.products-page .products .dishes-filter-section {
-  margin-top: 65px;
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.products-page .products .dishes-filter-box {
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.products-page .products .dishes-filter-box .order {
-  margin-right: 20px;
 }
 
 .products-page .products .list-category-section {

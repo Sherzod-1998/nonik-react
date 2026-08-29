@@ -259,7 +259,7 @@
     align-items: center;
   }
   
-  .order-page .order-box-scroll .orders-name-price .order-dish-img {
+  .order-page .order-box-scroll .orders-name-price .order-item-img {
     position: relative;
     width: 50px;
     height: 47px;
@@ -267,7 +267,7 @@
     background-size: cover;
   }
   
-  .order-page .order-box-scroll .orders-name-price .title-dish {
+  .order-page .order-box-scroll .orders-name-price .title-item {
     position: relative;
     width: 260px;
     height: 36px;
@@ -402,7 +402,7 @@
       flex-wrap: wrap;
     }
 
-    .order-page .order-box-scroll .orders-name-price .title-dish {
+    .order-page .order-box-scroll .orders-name-price .title-item {
       width: auto;
       max-width: 55%;
     }
@@ -453,7 +453,7 @@
       margin-left: 10px;
     }
 
-    .order-page .order-box-scroll .orders-name-price .title-dish {
+    .order-page .order-box-scroll .orders-name-price .title-item {
       font-size: 16px;
       line-height: 24px;
       max-width: 50%;

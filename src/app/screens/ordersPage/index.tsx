@@ -113,7 +113,7 @@ export default function OrdersPage() {
                   <img
                     src={
                       authMember?.memberType === MemberType.SELLER
-                        ? "/icons/restaurant.svg"
+                        ? "/icons/seller-badge.svg"
                         : "/icons/user-badge.svg"
                     }
                     className={"order-user-prof-img"}

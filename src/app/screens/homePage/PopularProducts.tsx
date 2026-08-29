@@ -3,26 +3,26 @@ import { Box, Container, Stack } from "@mui/material";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrievePopularDishes } from "./selector";
+import { retrievePopularProducts } from "./selector";
 import ProductGrid from "../../components/productGrid/ProductGrid";
 
 
-const popularDishesRetriever = createSelector(
-  retrievePopularDishes,
-  (popularDishes) => ({popularDishes}
+const popularProductsRetriever = createSelector(
+  retrievePopularProducts,
+  (popularProducts) => ({popularProducts}
 ));
 
 
-export default function PopularDishes() {
-  const {popularDishes} = useSelector(popularDishesRetriever);
+export default function PopularProducts() {
+  const {popularProducts} = useSelector(popularProductsRetriever);
 
   return (
-    <div className="popular-dishes-frame">
+    <div className="popular-products-frame">
       <Container>
         <Stack className="popular-section">
           <Box className="category-title">Top Products</Box>
           <ProductGrid
-            products={popularDishes}
+            products={popularProducts}
             emptyMessage="No products available!"
           />
         </Stack>

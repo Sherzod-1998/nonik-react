@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Statistics from "./Statistics";
 import CategoryNav from "./CategoryNav";
-import PopularDishes from "./PopularDishes";
+import PopularProducts from "./PopularProducts";
 import SkinQuiz from "./SkinQuiz";
-import NewDishes from "./NewDishes";
+import NewProducts from "./NewProducts";
 import FlashSaleBanner from "./FlashSaleBanner";
 import Advertisement from "./Advertisement";
 import BrandStory from "./BrandStory";
@@ -11,19 +11,19 @@ import Testimonials from "./Testimonials";
 import Events from "./Events";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setNewDishes, setPopularDishes } from "./slice";
+import { setNewProducts, setPopularProducts } from "./slice";
 import { Product } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import "../../../css/home.css";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
-  setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
-  setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
+  setPopularProducts: (data: Product[]) => dispatch(setPopularProducts(data)),
+  setNewProducts: (data: Product[]) => dispatch(setNewProducts(data)),
 });
 
 export default function HomePage() {
-  const { setPopularDishes, setNewDishes } = actionDispatch(useDispatch());
+  const { setPopularProducts, setNewProducts } = actionDispatch(useDispatch());
 
   useEffect(() => {
     // Backend server data fetch = Data
@@ -36,7 +36,7 @@ export default function HomePage() {
         productCollection: [],
       })
       .then((data) => {
-        setPopularDishes(data);
+        setPopularProducts(data);
       })
       .catch((err) => console.error(err));
 
@@ -48,7 +48,7 @@ export default function HomePage() {
         productCollection: [],
       })
       .then((data) => {
-        setNewDishes(data);
+        setNewProducts(data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -57,9 +57,9 @@ export default function HomePage() {
     <div className={"homepage"}>
       <Statistics />
       <CategoryNav />
-      <PopularDishes />
+      <PopularProducts />
       <SkinQuiz />
-      <NewDishes />
+      <NewProducts />
       <FlashSaleBanner />
       <Advertisement />
       <BrandStory />

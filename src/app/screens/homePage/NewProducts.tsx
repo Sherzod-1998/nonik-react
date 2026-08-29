@@ -2,18 +2,18 @@ import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrieveNewDishes } from "./selector";
+import { retrieveNewProducts } from "./selector";
 import ProductGrid from "../../components/productGrid/ProductGrid";
 
 
-const newDishesRetriever = createSelector(
-  retrieveNewDishes,
-  (newDishes) => ({newDishes}
+const newProductsRetriever = createSelector(
+  retrieveNewProducts,
+  (newProducts) => ({newProducts}
 ));
 
-export default function NewDishes() {
+export default function NewProducts() {
 
-  const {newDishes} = useSelector(newDishesRetriever);
+  const {newProducts} = useSelector(newProductsRetriever);
 
   return (
     <div className={"new-products-frame"}>
@@ -21,7 +21,7 @@ export default function NewDishes() {
         <Stack className={"main"}>
           <Box className={"category-title"}>Hot Arrivals</Box>
           <ProductGrid
-            products={newDishes}
+            products={newProducts}
             emptyMessage="New products are not available!"
           />
         </Stack>

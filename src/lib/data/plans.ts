@@ -2,7 +2,7 @@ export const plans = [
 	{
 		title: 'Summer Beauty Masterclass',
 		desc: 'Learn beauty secrets and discover our latest cosmetic products!',
-		author: 'Chef Deming',
+		author: 'Beauty Expert Deming',
 		date: '30 min ago',
 		location: 'Turkey, Istambul',
 		img: '/img/event1.jpg',
