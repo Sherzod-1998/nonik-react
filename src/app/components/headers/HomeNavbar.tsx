@@ -13,7 +13,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CartItem } from "../../../lib/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
@@ -48,21 +48,11 @@ export default function HomeNavbar(props: HomeNavbarProps) {
     handleLogoutRequest,
   } = props;
   const { authMember } = useGlobals();
-  const [count, setCount] = useState<number>(0);
-  const [value, setvalue] = useState<boolean>(true);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    setCount(count + 1);
-  }, [value]);
-
   /* HANDLERS */
-
-  const buttonHandler = () => {
-    setvalue(!value);
-  };
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
