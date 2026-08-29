@@ -5,8 +5,10 @@ import ProductsPageReducer from "./screens/productsPage/slice";
 import OrdersPageReducer from "./screens/ordersPage/slice";
 export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
-    // @ts-ignore
-    getDefaultMiddleware().concat(reduxLogger),
+    process.env.NODE_ENV === "development"
+      ? // @ts-ignore
+        getDefaultMiddleware().concat(reduxLogger)
+      : getDefaultMiddleware(),
   reducer: {
     homePage: HomePageReducer,
     productsPage: ProductsPageReducer,
