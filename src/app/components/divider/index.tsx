@@ -7,10 +7,13 @@ export interface IDividerProps {
 	bg?: string;
 }
 
+const toCssUnit = (value?: string) =>
+	value && (value.endsWith('%') || value.endsWith('px')) ? value : `${value}px`;
+
 const DividerComponent = styled.span<IDividerProps>`
 	display: flex;
-	min-width: ${({ width }) => `${width}px`};
-	min-height: ${({ height }) => `${height}px`};
+	min-width: ${({ width }) => toCssUnit(width)};
+	min-height: ${({ height }) => toCssUnit(height)};
 	background: ${({ bg }) => `${bg}`};
 `;
 
