@@ -112,7 +112,7 @@ export default function UserPage() {
           <Stack className={"wishlist-cards-frame"}>
             {favorites.length !== 0 ? (
               favorites.map((product: Product) => {
-                const imagePath = `${serverApi}/${product.productImages[0]}`;
+                const imagePath = `${serverApi}/${product.productImages[0] ?? ""}`;
                 return (
                   <Link
                     key={product._id}

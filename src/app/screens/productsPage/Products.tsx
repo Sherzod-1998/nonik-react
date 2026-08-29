@@ -413,7 +413,7 @@ export default function Products(props: ProductsProps) {
                 ))
               ) : products.length !== 0 ? (
                 products.map((product: Product) => {
-                  const imagePath = `${serverApi}/${product.productImages[0]}`;
+                  const imagePath = `${serverApi}/${product.productImages[0] ?? ""}`;
                   return (
                     <Stack
                       key={product._id}
@@ -432,7 +432,7 @@ export default function Products(props: ProductsProps) {
                               quantity: 1,
                               name: product.productName,
                               price: product.productPrice,
-                              image: product.productImages[0],
+                              image: product.productImages[0] ?? "",
                             });
                             e.stopPropagation();
                           }}

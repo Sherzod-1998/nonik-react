@@ -141,7 +141,7 @@ export default function ChosenProduct(props: ChosenProductProps) {
                     quantity: 1,
                     name: chosenProduct.productName,
                     price: chosenProduct.productPrice,
-                    image: chosenProduct.productImages[0],
+                    image: chosenProduct.productImages[0] ?? "",
                   });
                   e.stopPropagation();
                 }}
