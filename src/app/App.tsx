@@ -12,7 +12,6 @@ import Footer from "./components/footer";
 import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
-import Test from "./screens/Test";
 
 import HelpPage from "./screens/helpPage";
 import useBasket from "./hooks/useBasket";
