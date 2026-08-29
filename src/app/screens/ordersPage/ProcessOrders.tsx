@@ -7,15 +7,15 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrieveProcessOrders } from "./selector";
-import { Messages, serverApi } from "../../../lib/config";
-import { Order, OrderItem, OrderUpdateInput } from "../../../lib/types/order";
-import { Product } from "../../../lib/types/product";
+import { Messages } from "../../../lib/config";
+import { Order, OrderUpdateInput } from "../../../lib/types/order";
 import { useGlobals } from "../../hooks/useGlobals";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 
 import { T } from "../../../lib/types/common";
 import { sweetErrorHandling, sweetConfirmAlert } from "../../../lib/swettAlert";
+import { OrderItemsList, NoOrders } from "../../components/orderList/OrderItemsList";
 
 /** Redux slice and selector */
 const processOrdersRetriever = createSelector(
@@ -65,38 +65,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
         {processOrders?.map((order: Order) => {
           return (
             <Box key={order._id} className={"order-main-box"}>
-              <Box className={"order-box-scroll"}>
-                {order?.orderItems?.map((item: OrderItem) => {
-                  const product: Product | undefined = order.productData.filter(
-                    (ele: Product) => item.productId === ele._id
-                  )[0];
-                  if (!product) return null;
-                  const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  return (
-                    <Box key={item._id} className={"orders-name-price"}>
-                      <img
-                        src={imagePath}
-                        className={"order-dish-img"}
-                        onError={(e) => {
-                          if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
-                            e.currentTarget.src = "/icons/noimage-list.svg";
-                          }
-                        }}
-                      />
-                      <p className={"title-dish"}>{product.productName}</p>
-                      <Box className={"price-box"}>
-                        <p>${item.itemPrice}</p>
-                        <img src={"/icons/close.svg"} />
-                        <p>{item.itemQuantity}</p>
-                        <img src={"/icons/pause.svg"} />
-                        <p style={{ marginLeft: "15px" }}>
-                          ${item.itemQuantity * item.itemPrice}
-                        </p>
-                      </Box>
-                    </Box>
-                  );
-                })}
-              </Box>
+              <OrderItemsList order={order} />
 
               <Box className={"total-price-box"}>
                 <Box className={"box-total"}>
@@ -129,20 +98,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
         })}
 
         {(!processOrders || processOrders.length === 0) && (
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <img
-              src={"/icons/noimage-list.svg"}
-              style={{ width: 300, height: 300 }}
-            />
-            <p style={{ fontFamily: "Nunito", marginTop: "10px" }}>
-              No orders in progress.
-            </p>
-          </Box>
+          <NoOrders emptyMessage={"No orders in progress."} />
         )}
       </Stack>
     </TabPanel>

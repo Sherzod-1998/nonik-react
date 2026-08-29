@@ -5,9 +5,8 @@ import TabPanel from "@mui/lab/TabPanel";
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrieveFinishedOrders } from "./selector";
-import { serverApi } from "../../../lib/config";
-import { Order, OrderItem } from "../../../lib/types/order";
-import { Product } from "../../../lib/types/product";
+import { Order } from "../../../lib/types/order";
+import { OrderItemsList, NoOrders } from "../../components/orderList/OrderItemsList";
 
 /** Redux slice and selector*/
 const finishedOrdersRetriever = createSelector(
@@ -23,38 +22,7 @@ export default function FinishedOrders() {
         {finishedOrders?.map((order: Order) => {
           return (
             <Box key={order._id} className={"order-main-box"}>
-              <Box className={"order-box-scroll"}>
-                {order?.orderItems?.map((item: OrderItem) => {
-                  const product: Product | undefined = order.productData.filter(
-                    (ele: Product) => item.productId === ele._id
-                  )[0];
-                  if (!product) return null;
-                  const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  return (
-                    <Box key={item._id} className={"orders-name-price"}>
-                      <img
-                        src={imagePath}
-                        className={"order-dish-img"}
-                        onError={(e) => {
-                          if (e.currentTarget.src.indexOf("/icons/noimage-list.svg") === -1) {
-                            e.currentTarget.src = "/icons/noimage-list.svg";
-                          }
-                        }}
-                      />
-                      <p className={"title-dish"}>{product.productName}</p>
-                      <Box className={"price-box"}>
-                        <p>${item.itemPrice}</p>
-                        <img src={"/icons/close.svg"} />
-                        <p>{item.itemQuantity}</p>
-                        <img src={"/icons/pause.svg"} />
-                        <p style={{ marginLeft: "15px" }}>
-                          ${item.itemQuantity * item.itemPrice}
-                        </p>
-                      </Box>
-                    </Box>
-                  );
-                })}
-              </Box>
+              <OrderItemsList order={order} />
 
               <Box className={"total-price-box"}>
                 <Box className={"box-total"}>
@@ -76,20 +44,7 @@ export default function FinishedOrders() {
         })}
 
         {(!finishedOrders || finishedOrders.length === 0) && (
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            alignItems={"center"}
-            justifyContent={"center"}
-          >
-            <img
-              src={"/icons/noimage-list.svg"}
-              style={{ width: 300, height: 300 }}
-            />
-            <p style={{ fontFamily: "Nunito", marginTop: "10px" }}>
-              No finished orders yet.
-            </p>
-          </Box>
+          <NoOrders emptyMessage={"No finished orders yet."} />
         )}
       </Stack>
     </TabPanel>
