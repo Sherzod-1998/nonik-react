@@ -10,7 +10,7 @@
 
 .homepage .testimonials-frame .category-title {
   color: rgb(0, 0, 0);
-  font-family: "Playfair Display";
+  font-family: "Playfair Display", serif;
   font-size: 30px;
   font-weight: 400;
   line-height: 40px;
@@ -70,12 +70,12 @@
 
 .homepage .testimonials-frame .testimonial-quote {
   flex: 1;
-  font-family: "GT Walsheim Pro";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  color: #4f547b;
+  color: #6b625a;
 }
 
 .homepage .testimonials-frame .star-rating {
@@ -90,7 +90,7 @@
 }
 
 .homepage .testimonials-frame .star-icon.filled {
-  color: #eecd39;
+  color: #D4AF37;
 }
 
 .homepage .testimonials-frame .testimonial-reviewer {
@@ -110,10 +110,10 @@
 }
 
 .homepage .testimonials-frame .testimonial-name {
-  font-family: "Roboto Serif";
+  font-family: "Playfair Display", serif;
   font-weight: 600;
   font-size: 15px;
-  color: #140342;
+  color: #08090d;
 }
 
 .homepage .testimonials-frame .prev-next-frame {

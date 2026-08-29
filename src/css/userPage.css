@@ -39,7 +39,7 @@
 	display: flex;
 	justify-content: center;
 	border-bottom: 1px solid #e5e5ea;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 45px;
@@ -127,7 +127,7 @@
 
 .user-page .order-info-box .order-user-name {
 	margin-top: 10px;
-	font-family: 'Commissioner';
+	font-family: 'Playfair Display', serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 28px;
@@ -136,7 +136,7 @@
 }
 
 .user-page .order-info-box .order-user-prof {
-	font-family: 'Commissioner';
+	font-family: 'Playfair Display', serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 20px;
@@ -150,9 +150,9 @@
 	display: flex;
 	align-items: center;
 	gap: 6px;
-	background: #d7b586;
+	background: #D7B686;
 	border-radius: 20px;
-	font-family: 'Commissioner';
+	font-family: 'Playfair Display', serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 14px;
@@ -166,19 +166,19 @@
 	justify-content: center;
 	align-items: center;
 	background: transparent;
-	border: 1px solid #d7b586;
+	border: 1px solid #D7B686;
 	border-radius: 8px;
 	text-decoration: none;
-	font-family: 'Commissioner';
+	font-family: 'Playfair Display', serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
-	color: #d7b586;
+	color: #D7B686;
 	transition: background 0.3s ease, color 0.3s ease;
 }
 
 .user-page .order-info-box .my-orders-link:hover {
-	background: #d7b586;
+	background: #D7B686;
 	color: #08090d;
 }
 
@@ -187,7 +187,7 @@
 	width: 90%;
 	display: flex;
 	justify-content: center;
-	font-family: 'DM Sans';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -213,7 +213,7 @@
 
 .user-page .menu-box span {
 	margin-left: 30px;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 25px;
@@ -250,7 +250,7 @@
 	flex-direction: column;
 }
 .user-page .settings .spec-label {
-	font-family: 'Source Serif Pro';
+	font-family: 'Playfair Display', serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
@@ -268,12 +268,12 @@
 	background: #f7f7f7;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
-	font-family: 'GT Walsheim Pro';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 26px;
-	color: #4f547b;
+	color: #6b625a;
 }
 
 .user-page .settings .spec-textarea {
@@ -286,12 +286,12 @@
 	background: #f7f7f7;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
-	font-family: 'GT Walsheim Pro';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 26px;
-	color: #4f547b;
+	color: #6b625a;
 }
 
 .user-page .settings .member-media-frame {
@@ -320,22 +320,22 @@
 }
 
 .user-page .settings .media-change-box span {
-	font-family: 'GT Walsheim Pro';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 18px;
-	color: #140342;
+	color: #6b625a;
 }
 
 .user-page .settings .media-change-box p {
 	margin: 10px 0px 14px 0px;
-	font-family: 'GT Walsheim Pro';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 16px;
-	color: #4f547b;
+	color: #6b625a;
 }
 
 .user-page .settings .up-del-box {
@@ -391,7 +391,7 @@
 	display: flex;
 	justify-content: center;
 	border-bottom: 1px solid #e7e0d8;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 45px;
@@ -464,7 +464,7 @@
 
 .user-page .my-page-wishlist .wishlist-card-name {
 	margin-top: 10px;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 16px;
@@ -474,11 +474,11 @@
 
 .user-page .my-page-wishlist .wishlist-card-price {
 	margin-top: 5px;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 15px;
-	color: #e3c08d;
+	color: #D4AF37;
 }
 
 .user-page .my-page-wishlist .no-data {
@@ -487,7 +487,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
 	font-size: 20px;
 	color: #a1a1a1;
 }

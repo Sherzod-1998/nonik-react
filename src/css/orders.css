@@ -86,7 +86,7 @@
   
   .order-page .order-info-box .order-user-name {
     margin-top: 10px;
-    font-family: "Commissioner";
+    font-family: "Playfair Display", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 28px;
@@ -95,7 +95,7 @@
   }
   
   .order-page .order-info-box .order-user-prof {
-    font-family: "Commissioner";
+    font-family: "Playfair Display", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -111,7 +111,7 @@
   
   .order-page .order-info-box .spec-address-txt {
     margin-left: 5px;
-    font-family: "DM Sans";
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -121,7 +121,7 @@
 
   .order-page .order-info-box .payment-method-title {
     margin-top: 4px;
-    font-family: "Commissioner";
+    font-family: "Playfair Display", serif;
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
@@ -133,7 +133,7 @@
     margin-top: 10px;
     width: 100%;
     text-align: center;
-    font-family: "DM Sans";
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -160,7 +160,7 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #e7e0d8;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 45px;
@@ -272,7 +272,7 @@
     width: 260px;
     height: 36px;
     margin-left: 20px;
-    font-family: "Commissioner";
+    font-family: "Playfair Display", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
@@ -292,7 +292,7 @@
   }
   
   .order-page .order-box-scroll .orders-name-price .price-box p {
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -350,7 +350,7 @@
   
   .order-page .total-price-box .box-total p {
     margin-left: 20px;
-    font-family: "Commissioner";
+    font-family: "Playfair Display", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -359,7 +359,7 @@
   }
   
   .order-page .total-price-box .box-total .data-compl {
-    font-family: "Commissioner";
+    font-family: "Playfair Display", serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;

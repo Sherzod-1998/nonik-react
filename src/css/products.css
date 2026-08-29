@@ -39,7 +39,7 @@
 .products-page .products .top-text p {
   position: relative;
   margin-left: 380px;
-  font-family: "Dancing Script";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -115,7 +115,7 @@
 
 .products-page .products .restaurant-avatars span {
   margin-top: 14px;
-  font-family: "Solway";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -173,7 +173,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 13px;
-  color: #e3c08d;
+  color: #D7B686;
 }
 
 @media (max-width: 768px) {
@@ -189,12 +189,12 @@
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
   line-height: 34px;
-  color: #e3c08d;
+  color: #D7B686;
 }
 
 .products-page .products .product-card {
@@ -266,7 +266,7 @@
   background: #ff9200;
   box-shadow: 4px 6px 20px #0000001a;
   border-radius: 25px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -285,7 +285,7 @@
 
 .products-page .products .product-desc .product-title {
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
@@ -295,7 +295,7 @@
 
 .products-page .products .product-desc .product-desc {
   margin-top: 6px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -356,7 +356,7 @@
   background: rgba(11, 11, 12, 0.75);
   border: 2px solid #d7b686;
   border-radius: 10px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 10px;
@@ -444,7 +444,7 @@
 }
 
 .products-page .products .brands-logo .category-title {
-  font-family: "Dancing Script";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -472,7 +472,7 @@
 
 .products-page .products .brands-logo .review-name {
   margin-top: 10px;
-  font-family: "Commissioner";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -491,7 +491,7 @@
 }
 
 .products-page .products .brands-logo .review-prof {
-  font-family: "Commissioner";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -501,7 +501,7 @@
 
 .products-page .products .brands-logo .review-desc {
   margin-top: 10px;
-  font-family: "DM Sans";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -533,7 +533,7 @@
 }
 
 .products-page .products .address .title {
-  font-family: "Dancing Script";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -565,17 +565,17 @@
 }
 
 .products-page .products .address .visit-us-info .visit-us-item span {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #e3c08d;
+  color: #D7B686;
 }
 
 .products-page .products .address .visit-us-info .visit-us-item div {
   margin-left: 10px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -594,7 +594,7 @@
 }
 
 .products-page .products .about-left-desc span {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -613,7 +613,7 @@
 
 .products-page .products .about-left-desc p {
   margin-top: 10px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -642,7 +642,7 @@
 }
 
 .products-page .products .about-right-desc span {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -652,7 +652,7 @@
 
 .products-page .products .about-right-desc p {
   margin-top: 10px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -1105,7 +1105,7 @@ p {
 }
 
 .products-page .chosen-product .info-box .product-name {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
@@ -1115,7 +1115,7 @@ p {
 
 .products-page .chosen-product .info-box .resto-name {
   margin-top: 16px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 17px;
@@ -1158,7 +1158,7 @@ p {
   height: 112px;
   margin-top: 30px;
   margin-bottom: 30px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -1186,7 +1186,7 @@ p {
 }
 
 .products-page .chosen-product .product-price span {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 25px;
@@ -1205,7 +1205,7 @@ p {
 .products-page .chosen-product .button-box button {
   width: 230px;
   height: 44px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
@@ -1214,7 +1214,7 @@ p {
 }
 
 .products-page .chosen-product .title {
-  font-family: "Dancing Script";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
